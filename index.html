@@ -197,6 +197,13 @@ window.dash = (() => {
 [data-dash-source-state=empty] { color:transparent; }
 @media (prefers-reduced-motion:no-preference) { .ex [data-dash-source-state=refreshing] { opacity:.5; transition:opacity var(--cds-dur-slow); } }
 
+@media print {
+  .ex-scroll { max-height:none; overflow:visible; }
+  .ex-table thead th { position:static; }
+  .ex-sec, .ex-kpis, .ex-inputs-card { break-inside:avoid; }
+  .ex-mast { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .ex-table thead th, .ex-mix span, .ex-hbar, .ex-sw { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
 /* footer — matches ADRC Executive Dashboard */
 .ex-foot { color:var(--mk-muted); border-top:1px solid var(--mk-line); padding-top:.8rem; display:flex; flex-direction:column; gap:.55rem; }
 .ex-foot .fr { display:flex; justify-content:space-between; flex-wrap:wrap; gap:.4rem 1rem; }
@@ -283,7 +290,8 @@ window.dash = (() => {
     <div class="ex-grid">
       <section id="income" class="ex-sec" data-source="strategies">
         <div class="ex-sech"><span class="no">02</span><div class="tt"><span class="ex-mono k">Income vs. need</span>
-          <h2><b data-draw="x2-meet">—</b> of <span data-draw="x2-n">—</span> strategies cover a <span data-draw="x2-need">—</span> monthly need after tax</h2></div></div>
+          <h2 class="ex-alt" data-when="need"><b data-draw="x2-meet">—</b> of <span data-draw="x2-n">—</span> strategies cover a <span data-draw="x2-need">—</span> monthly need after tax</h2>
+          <h2 class="ex-alt" data-when="noneed" hidden>Enter a monthly income need to see which strategies cover it after tax</h2></div></div>
         <div class="ex-card">
           <p class="d">After-tax monthly income in year 1, $. Click a bar to select a strategy.</p>
           <ul class="ex-key"><li><i class="ex-sw ex-k-meet"></i>Meets need</li><li><i class="ex-sw ex-k-short"></i>Below need</li><li><i class="ex-sw dash"></i>Monthly need</li></ul>
@@ -307,7 +315,7 @@ window.dash = (() => {
       <div class="ex-sech"><span class="no">04</span><div class="tt"><span class="ex-mono k">Strategy comparison</span>
         <h2><b data-draw="x4-pay">—</b> pays the most each month; <b data-draw="x4-end">—</b> retains the most principal</h2></div></div>
       <div class="ex-card">
-        <p class="d">All seven strategies at your inputs. Net rate = total return − fee − withdrawal yield. Click a row to select it.</p>
+        <p class="d">All seven strategies at your inputs; ending values are at your <span data-draw="x4-h">—</span> horizon, in <span data-draw="basis5">—</span>. Net rate = total return − fee − withdrawal yield. Click a row to select it.</p>
         <div class="ex-scroll"><table class="ex-table">
           <thead><tr><th class="l">Strategy</th><th>Total return</th><th>Withdrawal</th><th>Net rate</th><th>Monthly payout</th><th>After-tax monthly</th><th>vs. need</th><th>End principal (withdrawn)</th><th>End value (reinvested)</th></tr></thead>
           <tbody data-draw="cmp-body"></tbody></table></div>
@@ -330,10 +338,11 @@ window.dash = (() => {
     <div class="ex-grid">
       <section id="muni" class="ex-sec">
         <div class="ex-sech"><span class="no">06</span><div class="tt"><span class="ex-mono k">Municipal tax-equivalent yield</span>
-          <h2>At a <span data-draw="x6-rate">—</span> federal rate, MUB’s <span data-draw="x6-sec">—</span> SEC yield equals <b data-draw="x6-tey">—</b> on a taxable basis</h2></div></div>
+          <h2 class="ex-alt" data-when="tax">At a <span data-draw="x6-rate">—</span> federal rate, MUB’s <span data-draw="x6-sec">—</span> SEC yield equals <b data-draw="x6-tey">—</b> on a taxable basis</h2>
+          <h2 class="ex-alt" data-when="notax" hidden>MUB’s tax advantage grows with your federal rate; choose a rate in Scenario Inputs to compare</h2></div></div>
         <div class="ex-card">
           <p class="d">Taxable-equivalent yield = municipal yield ÷ (1 − marginal rate). A comparison measure, not a payout.</p>
-          <div class="ex-howto" data-source="etfs"><span class="v" data-draw="tey">—</span><span class="s">at your selected federal rate</span></div>
+          <div class="ex-howto" data-source="etfs"><span class="v" data-draw="tey">—</span><span class="s">taxable-equivalent yield at your selected federal rate (<span data-draw="x6-rate2">—</span>)</span></div>
           <table class="ex-table" data-source="tax_equiv" data-row-key="rate">
             <thead><tr><th class="l" data-field="rate">Federal marginal rate</th><th data-field="te_yield">Taxable-equivalent SEC yield</th></tr></thead>
             <tbody data-draw="tey-body"></tbody></table>
@@ -355,15 +364,15 @@ window.dash = (() => {
       </section>
     </div>
 
-    <section id="report" class="ex-sec">
-      <div class="ex-sech"><span class="no">08</span><div class="tt"><span class="ex-mono k">Report reconciliation</span>
-        <h2>At default inputs, the model reproduces the report’s published results</h2></div></div>
+    <section id="milestones" class="ex-sec" data-source="strategies">
+      <div class="ex-sech"><span class="no">08</span><div class="tt"><span class="ex-mono k">5- and 10-year milestones</span>
+        <h2><b data-draw="x8-top">—</b> reaches the highest 10-year value at your inputs, <b data-draw="x8-val">—</b> with payouts reinvested</h2></div></div>
       <div class="ex-card">
-        <p class="d">Original report figures on its own capital base, with no fee, tax, inflation or market decline, $.</p>
-        <div class="ex-scroll"><table class="ex-table" data-source="strategies" data-row-key="id">
-          <thead><tr><th class="l" data-field="name">Strategy</th><th data-field="report_annual_payout">Annual payout</th><th data-field="report_5y_withdrawn">5-yr principal (withdrawn)</th><th data-field="report_10y_withdrawn">10-yr principal (withdrawn)</th><th data-field="report_5y_reinvested">5-yr value (reinvested)</th><th data-field="report_10y_reinvested">10-yr value (reinvested)</th></tr></thead>
-          <tbody data-draw="ref-body"></tbody></table></div>
-        <p class="src">Source: ETF Strategy Comparison Report, Sections 1 and 3–6</p>
+        <p class="d">All seven strategies at your investment amount, fee, market decline and dollar basis (<span data-draw="basis4">—</span>). Payouts are before tax. Click a row to select it.</p>
+        <div class="ex-scroll"><table class="ex-table">
+          <thead><tr><th class="l">Strategy</th><th>Annual payout, yr 1</th><th>5-yr principal (withdrawn)</th><th>10-yr principal (withdrawn)</th><th>5-yr value (reinvested)</th><th>10-yr value (reinvested)</th></tr></thead>
+          <tbody data-draw="ms-body"></tbody></table></div>
+        <p class="src">Source: ETF Strategy Comparison Report assumptions; constant-rate model at scenario inputs</p>
       </div>
     </section>
 
@@ -498,6 +507,14 @@ window.dash = (() => {
     sel.onchange = () => pick(sel.value);
   });
 
+  dash.onData(() => {
+    const p = dash.params(), need = Number(p.need) > 0, tax = Number(p.tax) > 0;
+    const on = {need, noneed: !need, tax, notax: !tax};
+    document.querySelectorAll('.ex-alt').forEach((h) => { h.hidden = !on[h.dataset.when]; });
+  });
+  text('x4-h', (c) => c.p.years + '-year');
+  text('basis5', (c) => basisWord(c));
+  dash.draw('x6-rate2', (el) => { el.textContent = (Number(dash.params().tax) || 0) + '%'; });
   text('kfh-basis', (c) => c.sel.allocation + ' · ' + basisWord(c));
 
   /* Header and KPI strip */
@@ -739,15 +756,22 @@ window.dash = (() => {
     });
   });
 
-  dash.draw('ref-body', (tb) => {
-    const g = dash.data('strategies'); tb.replaceChildren(); if (g.status !== 'ok') return;
-    const cur = dash.params().strategy;
-    g.data.forEach((s) => {
-      const tr = document.createElement('tr'); tr.dataset.key = s.id; if (s.id === cur) tr.className = 'is-sel';
-      const a = document.createElement('td'); a.className = 'l nm'; a.textContent = s.name; tr.appendChild(a);
-      ['report_annual_payout', 'report_5y_withdrawn', 'report_10y_withdrawn', 'report_5y_reinvested', 'report_10y_reinvested'].forEach((k) => {
-        const td = document.createElement('td'); td.textContent = money(Number(s[k])); tr.appendChild(td);
-      });
+  const ten = (c) => ({...c, p: {...c.p, years: Math.max(10, c.p.years)}});
+  const milestones = (c) => c.strategies.map((s) => {
+    const path = run(s, ten(c)).path, m = run(s, c);
+    return {s, annual: m.annual, w5: path[5].endW, w10: path[10].endW, r5: path[5].endR, r10: path[10].endR};
+  });
+  const msTop = (c) => milestones(c).sort((a, b) => b.r10 - a.r10)[0];
+  text('x8-top', (c) => msTop(c).s.name);
+  text('x8-val', (c) => money(msTop(c).r10));
+  text('basis4', (c) => basisWord(c));
+  dash.draw('ms-body', (tb) => {
+    const c = ctx(); tb.replaceChildren(); if (!c.ok) return;
+    milestones(c).forEach((r) => {
+      const tr = document.createElement('tr'); tr.className = 'pick' + (r.s.id === c.sel.id ? ' is-sel' : '');
+      const a = document.createElement('td'); a.className = 'l nm'; a.textContent = r.s.name; tr.appendChild(a);
+      [r.annual, r.w5, r.w10, r.r5, r.r10].forEach((v) => { const td = document.createElement('td'); td.textContent = money(v); tr.appendChild(td); });
+      tr.addEventListener('click', () => pick(r.s.id));
       tb.appendChild(tr);
     });
   });
