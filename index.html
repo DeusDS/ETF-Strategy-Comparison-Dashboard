@@ -109,7 +109,12 @@ window.dash = (() => {
 
 /* inputs */
 .ex-card { background:var(--mk-card); border:1px solid var(--mk-line); padding:1.15rem 1.25rem 1rem; display:flex; flex-direction:column; gap:.45rem; min-width:0; }
-.ex-inputs-card { padding:1.2rem .95rem 1.35rem; }
+.ex-inputs-card { padding:1.2rem .95rem 1.35rem; position:relative; }
+/* option lists: always open directly below their box */
+.ex-menu { position:absolute; z-index:60; max-height:17.6rem; overflow-y:auto; overscroll-behavior:contain; background:var(--mk-card); border:1px solid var(--mk-line); border-top:2px solid var(--mk-gold); box-shadow:0 10px 24px rgba(4,19,46,.16); padding:.25rem 0; max-width:min(30rem, calc(100% - 1rem)); box-sizing:border-box; }
+.ex-mi { display:block; width:100%; text-align:left; background:none; border:0; border-radius:0; padding:.42rem .75rem; font-family:inherit; font-size:.92rem; line-height:1.35; color:var(--mk-ink); cursor:pointer; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.ex-mi:hover, .ex-mi:focus { background:var(--mk-gold-t); outline:none; }
+.ex-mi.on { font-weight:700; box-shadow:inset 3px 0 0 var(--mk-gold); }
 .ex-inhead { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-bottom:.85rem; border-bottom:2px solid var(--mk-navy); }
 .ex-inhead .d { font-size:var(--cds-font-size-caption); color:var(--mk-muted); }
 .ex-hctl { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
@@ -297,7 +302,7 @@ window.dash = (() => {
         <div class="ex-group">
           <span class="ex-mono gk">A · Portfolio</span>
           <div class="ex-fields">
-            <div class="ex-field"><label for="ex-amount">Investment amount ($)</label><div class="ex-combo"><input id="ex-amount" type="number" inputmode="decimal" step="1000" data-param="amount" data-kind="number" data-min="1000" data-max="100000000"><select class="ex-preset" data-for="ex-amount" aria-label="Investment amount ($) options"><option value="" selected hidden></option><option value="25000">$25,000</option><option value="50000">$50,000</option><option value="75000">$75,000</option><option value="100000">$100,000</option><option value="133000">$133,000</option><option value="150000">$150,000</option><option value="200000">$200,000</option><option value="250000">$250,000</option><option value="500000">$500,000</option><option value="1000000">$1,000,000</option></select></div><div class="ex-hint">Starting balance to invest</div></div>
+            <div class="ex-field"><label for="ex-amount">Investment amount ($)</label><div class="ex-combo"><input id="ex-amount" type="number" inputmode="decimal" step="1000" data-param="amount" data-kind="number" data-min="1000" data-max="100000000"><select class="ex-preset" data-for="ex-amount" aria-label="Investment amount ($) options"><option value="" selected hidden></option><option value="25000">$25,000</option><option value="50000">$50,000</option><option value="75000">$75,000</option><option value="100000">$100,000</option><option value="150000">$150,000</option><option value="200000">$200,000</option><option value="250000">$250,000</option><option value="300000">$300,000</option><option value="400000">$400,000</option><option value="500000">$500,000</option><option value="750000">$750,000</option><option value="1000000">$1,000,000</option><option value="1500000">$1,500,000</option><option value="2000000">$2,000,000</option><option value="2500000">$2,500,000</option><option value="3000000">$3,000,000</option><option value="4000000">$4,000,000</option><option value="5000000">$5,000,000</option><option value="6000000">$6,000,000</option><option value="7500000">$7,500,000</option><option value="10000000">$10,000,000</option></select></div><div class="ex-hint">Starting balance to invest</div></div>
             <div class="ex-field"><label for="ex-strategy">Strategy</label><div class="ex-selwrap"><select id="ex-strategy" data-draw="strategy-select" data-source="strategies"></select><span class="ex-selname" data-draw="strategy-label" aria-hidden="true">—</span></div><div class="ex-hint">Or click any chart or row</div></div>
             <div class="ex-field"><label for="ex-years">Time horizon (years)</label><div class="ex-combo"><input id="ex-years" type="number" inputmode="decimal" step="1" data-param="years" data-kind="number" data-min="1" data-max="40"><select class="ex-preset" data-for="ex-years" aria-label="Time horizon (years) options"><option value="" selected hidden></option><option value="1">1 year</option><option value="3">3 years</option><option value="5">5 years</option><option value="10">10 years</option><option value="15">15 years</option><option value="20">20 years</option><option value="25">25 years</option><option value="30">30 years</option></select></div><div class="ex-hint">Years to project, 1 to 40</div></div>
             <div class="ex-field"><label for="ex-mode">Payout handling</label>
@@ -324,6 +329,7 @@ window.dash = (() => {
           </div>
         </div>
       </div>
+      <div class="ex-menu" data-draw="menu" role="listbox" hidden></div>
     </section>
 
     <section id="kpis">
@@ -1084,6 +1090,69 @@ window.dash = (() => {
       d.append(a, b, s2); el.appendChild(d);
     });
   });
+  /* Option lists: replace the browser's pop-up (which may open upward) with a list that always opens below the box */
+  const menuEl = document.querySelector('.ex-menu');
+  window.exMenu = {sel: null};
+  const menuOpts = (sel) => [...sel.options].filter((o) => !o.hidden && !(o.value === '' && !o.textContent.trim()));
+  const closeMenu = (refocus) => { const sel = window.exMenu.sel; if (!sel) return; menuEl.hidden = true; window.exMenu = {sel: null}; if (refocus) sel.focus(); };
+  const chooseMenu = (v) => { const sel = window.exMenu.sel; if (!sel) return; closeMenu(false); sel.value = v; sel.dispatchEvent(new Event('change', {bubbles: true})); sel.focus(); };
+  dash.draw('menu', (el) => {
+    el.replaceChildren(); const sel = window.exMenu.sel; if (!sel) return;
+    const inp = sel.dataset.for ? document.getElementById(sel.dataset.for) : null;
+    const cur = inp ? (inp.classList.contains('is-auto') ? '__clear' : String(inp.value)) : String(sel.value);
+    menuOpts(sel).forEach((o) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'ex-mi' + (String(o.value) === cur ? ' on' : '');
+      b.setAttribute('role', 'option'); b.setAttribute('aria-selected', String(o.value) === cur ? 'true' : 'false');
+      b.textContent = o.textContent; b.addEventListener('click', () => chooseMenu(o.value)); el.appendChild(b);
+    });
+  });
+  const placeMenu = () => {
+    const sel = window.exMenu.sel; if (!sel) return;
+    const card = document.getElementById('inputs'); const anchor = sel.closest('.ex-combo, .ex-selwrap') || sel;
+    const cr = card.getBoundingClientRect(), r = anchor.getBoundingClientRect();
+    menuEl.style.top = (r.bottom - cr.top + 3) + 'px'; menuEl.style.minWidth = r.width + 'px';
+    const w = menuEl.offsetWidth || r.width; let left = r.left - cr.left;
+    if (left + w > cr.width - 8) left = Math.max(8, r.right - cr.left - w);
+    menuEl.style.left = left + 'px';
+  };
+  const openMenu = (sel, focusItem) => {
+    if (sel.disabled) return;
+    window.exMenu = {sel}; menuEl.hidden = false; dash.draw('menu'); placeMenu();
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (window.exMenu.sel !== sel) return;
+      placeMenu();
+      const on = menuEl.querySelector('.ex-mi.on') || menuEl.querySelector('.ex-mi');
+      if (on) menuEl.scrollTop = Math.max(0, on.offsetTop - menuEl.clientHeight / 2 + on.offsetHeight / 2);
+      const mr = menuEl.getBoundingClientRect();
+      if (mr.bottom > window.innerHeight) window.scrollBy({top: mr.bottom - window.innerHeight + 12, behavior: 'smooth'});
+      if (focusItem && on) on.focus();
+    }));
+  };
+  document.querySelectorAll('#inputs select').forEach((sel) => {
+    sel.addEventListener('mousedown', (e) => { e.preventDefault(); });
+    sel.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return; e.preventDefault(); sel.focus();
+      if (window.exMenu.sel === sel) closeMenu(false); else openMenu(sel, false);
+    });
+    sel.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter' || e.key === 'F4' || (e.altKey && (e.key === 'ArrowDown' || e.key === 'ArrowUp'))) { e.preventDefault(); openMenu(sel, true); }
+      else if (e.key === 'Escape') closeMenu(true);
+    });
+  });
+  menuEl.addEventListener('keydown', (e) => {
+    const items = [...menuEl.querySelectorAll('.ex-mi')]; const i = items.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); (items[Math.min(items.length - 1, i + 1)] || items[0]).focus(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); (items[Math.max(0, i - 1)] || items[0]).focus(); }
+    else if (e.key === 'Home') { e.preventDefault(); items[0] && items[0].focus(); }
+    else if (e.key === 'End') { e.preventDefault(); items[items.length - 1] && items[items.length - 1].focus(); }
+    else if (e.key === 'Escape') { e.preventDefault(); closeMenu(true); }
+    else if (e.key === 'Tab') closeMenu(false);
+  });
+  document.addEventListener('pointerdown', (e) => {
+    const sel = window.exMenu.sel; if (!sel) return;
+    if (menuEl.contains(e.target) || e.target === sel) return; closeMenu(false);
+  }, true);
+  window.addEventListener('resize', () => closeMenu(false));
 })();
 </script>
 </div>
