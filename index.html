@@ -109,7 +109,7 @@ window.dash = (() => {
 
 /* inputs */
 .ex-card { background:var(--mk-card); border:1px solid var(--mk-line); padding:1.15rem 1.25rem 1rem; display:flex; flex-direction:column; gap:.45rem; min-width:0; }
-.ex-inputs-card { padding:1.2rem 1.35rem 1.35rem; }
+.ex-inputs-card { padding:1.2rem .95rem 1.35rem; }
 .ex-inhead { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-bottom:.85rem; border-bottom:2px solid var(--mk-navy); }
 .ex-inhead .d { font-size:var(--cds-font-size-caption); color:var(--mk-muted); }
 .ex-hctl { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
@@ -136,17 +136,18 @@ window.dash = (() => {
 .ex-hint b { color:var(--mk-ink); font-weight:600; }
 .ex-reset { font-family:var(--mk-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; height:2.5rem; padding:0 1rem; border:1px solid var(--mk-navy); border-radius:2px; background:transparent; color:var(--mk-navy); cursor:pointer; }
 .ex-reset:hover { background:var(--mk-gold); border-color:var(--mk-gold); color:#1c1304; }
-.ex-groups { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:2.5rem; }
+.ex-groups { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:1.5rem; }
 .ex-group { padding:1rem 0 .2rem; min-width:0; position:relative; }
-.ex-group + .ex-group::before { content:""; position:absolute; left:-1.25rem; top:0; bottom:0; width:1px; background:var(--mk-line); }
+.ex-group + .ex-group::before { content:""; position:absolute; left:-.75rem; top:0; bottom:0; width:1px; background:var(--mk-line); }
 .ex-group .gk { color:var(--mk-gold); display:block; margin-bottom:.85rem; }
-.ex-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.15rem 1rem; }
+.ex-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.15rem .7rem; }
 .ex-field { display:flex; flex-direction:column; min-width:0; }
 .ex-field label { display:flex; align-items:flex-end; min-height:1.3em; white-space:nowrap; font-size:var(--cds-font-size-caption); font-weight:600; color:var(--mk-ink); line-height:1.3; margin-bottom:.35rem; }
 .ex-field input, .ex-field select { width:100%; height:2.5rem; box-sizing:border-box; margin:0; padding:0 .6rem; font-family:inherit; font-size:.92rem; line-height:1.2; color:var(--mk-ink); background:var(--mk-card); border:1px solid var(--mk-line); border-bottom:2px solid var(--mk-navy); border-radius:0; font-variant-numeric:tabular-nums; }
 .ex-field input:focus, .ex-field select:focus { outline:none; border-bottom-color:var(--mk-gold); background-color:var(--mk-blue-t); }
-.ex-hint { font-size:var(--cds-font-size-caption); color:var(--mk-muted); margin-top:.35rem; line-height:1.35; min-height:1.35em; text-wrap:balance; }
-@media (max-width: 1279px) and (min-width: 901px) { .ex-fields { grid-template-columns:1fr; } }
+.ex-hint { font-size:.75rem; color:var(--mk-muted); margin-top:.35rem; line-height:1.35; min-height:1.35em; white-space:nowrap; }
+.ex-groups.ex-onecol .ex-fields { grid-template-columns:1fr; }
+@media (max-width: 1179px) and (min-width: 901px) { .ex-fields { grid-template-columns:1fr; } }
 @media (max-width: 900px) { .ex-groups { grid-template-columns:1fr; column-gap:0; } .ex-group + .ex-group::before { display:none; } .ex-group + .ex-group { border-top:1px solid var(--mk-line); margin-top:.6rem; } }
 @media (max-width: 480px) { .ex-fields { grid-template-columns:1fr; } .ex-field label { white-space:normal; } }
 
@@ -306,7 +307,7 @@ window.dash = (() => {
         <div class="ex-group">
           <span class="ex-mono gk">B · Withdrawals and income</span>
           <div class="ex-fields">
-            <div class="ex-field ex-key-field"><label for="ex-wr">Withdrawal rate (%)</label><div class="ex-combo"><input id="ex-wr" type="text" inputmode="decimal" autocomplete="off" data-param="wr" data-kind="number" data-optional="1" data-min="0" data-max="25"><select class="ex-preset" data-for="ex-wr" aria-label="Withdrawal rate (%) options"><option value="" selected hidden></option><option value="__clear">Strategy rate (default)</option><option value="4">The 4% Rule (4%)</option><option value="3">3%</option><option value="3.5">3.5%</option><option value="4.5">4.5%</option><option value="5">5%</option><option value="5.5">5.5%</option><option value="6">6%</option><option value="7">7%</option><option value="8">8%</option></select></div><div class="ex-hint"><span class="ex-alt" data-when="wrown">Default: strategy rate – <b data-draw="wr-own">—</b></span><span class="ex-alt" data-when="wrrule" hidden>Default: The 4% Rule – <b>4%</b></span><span class="ex-alt" data-when="wrcustomrule" hidden>Applied: The 4% Rule – <b>4%</b></span><span class="ex-alt" data-when="wrcustomother" hidden>Custom rate – <b data-draw="wr-rate">—</b></span></div></div>
+            <div class="ex-field ex-key-field"><label for="ex-wr">Withdrawal rate (%)</label><div class="ex-combo"><input id="ex-wr" type="text" inputmode="decimal" autocomplete="off" data-param="wr" data-kind="number" data-optional="1" data-min="0" data-max="25"><select class="ex-preset" data-for="ex-wr" aria-label="Withdrawal rate (%) options"><option value="" selected hidden></option><option value="__clear">Strategy rate (default)</option><option value="4">The 4% Rule (4%)</option><option value="3">3%</option><option value="3.5">3.5%</option><option value="4.5">4.5%</option><option value="5">5%</option><option value="5.5">5.5%</option><option value="6">6%</option><option value="7">7%</option><option value="8">8%</option></select></div><div class="ex-hint"><span class="ex-alt" data-when="wrown">Default: strategy rate = <b data-draw="wr-own">—</b></span><span class="ex-alt" data-when="wrrule" hidden>Default: The 4% Rule = <b>4%</b></span><span class="ex-alt" data-when="wrcustomrule" hidden>Applied: The 4% Rule = <b>4%</b></span><span class="ex-alt" data-when="wrcustomother" hidden>Custom rate = <b data-draw="wr-rate">—</b></span></div></div>
             <div class="ex-field"><label for="ex-wrscope">Apply rate to</label>
               <select id="ex-wrscope" data-param="wrscope" data-kind="text"><option value="selected">Selected strategy</option><option value="all">All strategies</option></select><div class="ex-hint"><span class="ex-alt" data-when="wrauto">Set a custom rate to enable</span><span class="ex-alt" data-when="wrsel" hidden>Selected; others unchanged</span><span class="ex-alt" data-when="wrall" hidden>Same rate for every strategy</span></div></div>
             <div class="ex-field"><label for="ex-need">Monthly income need ($)</label><div class="ex-combo"><input id="ex-need" type="number" inputmode="decimal" step="50" data-param="need" data-kind="number" data-optional="1" data-min="0" data-max="1000000"><select class="ex-preset" data-for="ex-need" aria-label="Monthly income need ($) options"><option value="" selected hidden></option><option value="__clear">Default</option><option value="250">$250</option><option value="300">$300</option><option value="400">$400</option><option value="500">$500</option><option value="600">$600</option><option value="750">$750</option><option value="1000">$1,000</option><option value="1500">$1,500</option><option value="2000">$2,000</option></select></div><div class="ex-hint"><span class="ex-alt" data-when="wrauto">Default: amount × 4% ÷ 12</span><span class="ex-alt" data-when="wrcustom" hidden>Default: amount × rate ÷ 12</span></div></div>
@@ -319,7 +320,7 @@ window.dash = (() => {
             <div class="ex-field"><label for="ex-fee">Advisory fee (%)</label><div class="ex-combo"><input id="ex-fee" type="number" inputmode="decimal" step="0.05" data-param="fee" data-kind="number" data-min="0" data-max="5"><select class="ex-preset" data-for="ex-fee" aria-label="Adviser or account fee (%) options"><option value="" selected hidden></option><option value="0">0%</option><option value="0.25">0.25%</option><option value="0.5">0.5%</option><option value="0.75">0.75%</option><option value="1">1%</option><option value="1.25">1.25%</option><option value="1.5">1.5%</option></select></div><div class="ex-hint">Deducted from annual return</div></div>
             <div class="ex-field"><label for="ex-infl">Inflation rate (%)</label><div class="ex-combo"><input id="ex-infl" type="number" inputmode="decimal" step="0.1" data-param="infl" data-kind="number" data-min="0" data-max="15"><select class="ex-preset" data-for="ex-infl" aria-label="Inflation rate (%) options"><option value="" selected hidden></option><option value="2">2%</option><option value="2.5">2.5%</option><option value="3">3%</option><option value="3.5">3.5%</option><option value="4">4%</option><option value="5">5%</option></select></div><div class="ex-hint">Used for today’s dollars</div></div>
             <div class="ex-field"><label for="ex-shock">Year-1 decline (%)</label><div class="ex-combo"><input id="ex-shock" type="number" inputmode="decimal" step="1" data-param="shock" data-kind="number" data-min="0" data-max="60"><select class="ex-preset" data-for="ex-shock" aria-label="Year-1 market decline (%) options"><option value="" selected hidden></option><option value="0">None</option><option value="10">−10%</option><option value="20">−20%</option><option value="30">−30%</option><option value="40">−40%</option><option value="50">−50%</option></select></div><div class="ex-hint">Applied to stock holdings</div></div>
-            <div class="ex-field"><label for="ex-ret">Return override (%)</label><div class="ex-combo"><input id="ex-ret" type="number" inputmode="decimal" step="0.05" placeholder="Strategy default" data-param="ret" data-kind="number" data-optional="1" data-min="-20" data-max="25"><select class="ex-preset" data-for="ex-ret" aria-label="Total return override (%) options"><option value="" selected hidden></option><option value="__clear">Strategy default</option><option value="3">3%</option><option value="4">4%</option><option value="5">5%</option><option value="6">6%</option><option value="7">7%</option><option value="8">8%</option><option value="9">9%</option><option value="10">10%</option><option value="11">11%</option><option value="12">12%</option></select></div><div class="ex-hint">Default: strategy’s <b data-draw="def-ret">—</b></div></div>
+            <div class="ex-field"><label for="ex-ret">Return override (%)</label><div class="ex-combo"><input id="ex-ret" type="number" inputmode="decimal" step="0.05" placeholder="Strategy default" data-param="ret" data-kind="number" data-optional="1" data-min="-20" data-max="25"><select class="ex-preset" data-for="ex-ret" aria-label="Total return override (%) options"><option value="" selected hidden></option><option value="__clear">Strategy default</option><option value="3">3%</option><option value="4">4%</option><option value="5">5%</option><option value="6">6%</option><option value="7">7%</option><option value="8">8%</option><option value="9">9%</option><option value="10">10%</option><option value="11">11%</option><option value="12">12%</option></select></div><div class="ex-hint"><span class="ex-alt" data-when="retdef">Default: strategy return = <b data-draw="def-ret">—</b></span><span class="ex-alt" data-when="retcustom" hidden>Custom return = <b data-draw="ret-val">—</b></span></div></div>
           </div>
         </div>
       </div>
@@ -618,7 +619,8 @@ window.dash = (() => {
     const hasOwn = !!ss && !(ss.withdrawal_yield === null || ss.withdrawal_yield === undefined || ss.withdrawal_yield === '');
     const isRule = custom && Number(p.wr) === 4;
     const on = {need, noneed: !need, tax, notax: !tax, wrauto: !custom, wrcustom: custom, wrsel: custom && p.wrscope !== 'all', wrall: custom && p.wrscope === 'all',
-      wrown: !custom && hasOwn, wrrule: !custom && !hasOwn, wrcustomrule: isRule, wrcustomother: custom && !isRule};
+      wrown: !custom && hasOwn, wrrule: !custom && !hasOwn, wrcustomrule: isRule, wrcustomother: custom && !isRule,
+      retdef: p.ret === null || p.ret === undefined || p.ret === '', retcustom: !(p.ret === null || p.ret === undefined || p.ret === '')};
     document.querySelectorAll('.ex-alt').forEach((h) => { h.hidden = !on[h.dataset.when]; });
   });
   text('x4-h', (c) => c.p.years + '-year');
@@ -627,6 +629,32 @@ window.dash = (() => {
   text('wr-sname', (c) => c.sel.name);
   text('wr-rate', (c) => (c.p.wr === null ? '—' : pct(c.p.wr)));
   dash.draw('strategy-label', (el) => { const c = ctx(); el.textContent = c.sel ? c.sel.name : '—'; });
+  text('ret-val', (c) => (c.p.ret === null ? '—' : pct(c.p.ret)));
+  /* Keep every input note on one line: if any note or label is wider than a two-column field, stack each group's fields in one column. */
+  const fitInputs = () => {
+    const groups = document.querySelector('.ex-groups'); if (!groups) return;
+    const fieldsEl = groups.querySelector('.ex-fields'); if (!fieldsEl || !fieldsEl.offsetWidth) return;
+    const cs = getComputedStyle(fieldsEl);
+    const stacked = groups.classList.contains('ex-onecol');
+    const natural = cs.gridTemplateColumns.split(' ').length;
+    const gap = parseFloat(cs.columnGap) || 0;
+    const twoColW = stacked ? (fieldsEl.clientWidth - gap) / 2 : (natural >= 2 ? (fieldsEl.clientWidth - gap) / 2 : fieldsEl.clientWidth);
+    const cv = document.createElement('canvas').getContext('2d');
+    let need = 0;
+    groups.querySelectorAll('.ex-hint').forEach((h) => {
+      const parts = h.querySelectorAll('.ex-alt').length ? [...h.querySelectorAll('.ex-alt')] : [h];
+      parts.forEach((part) => {
+        let w = 0;
+        part.childNodes.forEach((n) => { const el = n.nodeType === 1 ? n : h; cv.font = getComputedStyle(el).font; const t = n.textContent.trim() === '—' ? '00.00%' : n.textContent; w += cv.measureText(t).width; });
+        need = Math.max(need, w);
+      });
+    });
+    groups.querySelectorAll('.ex-field label').forEach((l) => { cv.font = getComputedStyle(l).font; need = Math.max(need, cv.measureText(l.textContent).width); });
+    groups.classList.toggle('ex-onecol', need > twoColW + 14);
+  };
+  dash.onData(() => requestAnimationFrame(fitInputs));
+  window.addEventListener('resize', () => requestAnimationFrame(fitInputs));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => requestAnimationFrame(fitInputs));
   text('wr-own', (c) => (c.sel.withdrawal_yield === null ? '—' : pct(c.sel.withdrawal_yield)));
   text('kfh-basis', (c) => c.sel.allocation + ' · ' + basisWord(c));
 
