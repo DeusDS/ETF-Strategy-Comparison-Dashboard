@@ -29,8 +29,8 @@ body { background: #f6f4ef; -webkit-font-smoothing: antialiased; }
 </script>
 <script>
 window.dash = (() => {
-  const DATA = {"strategies": [{"id": "s1", "name": "Balanced income", "allocation": "40% JEPI / 35% SCHD / 25% IEF", "profile": "Moderate risk / intermediate Treasuries", "total_return": 7.85, "withdrawal_yield": 5.53, "equity_pct": 35, "option_pct": 40, "bond_pct": 25, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 7355, "report_5y_withdrawn": 149155, "report_10y_withdrawn": 167280, "report_5y_reinvested": 194068, "report_10y_reinvested": 283175}, {"id": "s2", "name": "Low risk", "allocation": "40% SGOV / 25% GOVT / 20% SCHD / 10% JEPI / 5% SCHB", "profile": "Low risk / broad Treasury", "total_return": 5.18, "withdrawal_yield": 3.95, "equity_pct": 25, "option_pct": 10, "bond_pct": 65, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 5253, "report_5y_withdrawn": 141383, "report_10y_withdrawn": 150294, "report_5y_reinvested": 171206, "report_10y_reinvested": 220386}, {"id": "s3", "name": "Growth & payout", "allocation": "45% SCHD / 40% JEPI / 15% JEPQ", "profile": "High growth & high payout", "total_return": 9.47, "withdrawal_yield": 6.08, "equity_pct": 45, "option_pct": 55, "bond_pct": 0, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 8086, "report_5y_withdrawn": 157124, "report_10y_withdrawn": 185625, "report_5y_reinvested": 209088, "report_10y_reinvested": 328705}, {"id": "s4", "name": "Target maturity", "allocation": "50% IBTL (2031) / 50% IBTR (2036)", "profile": "Target-maturity / income scenario", "total_return": 4.22, "withdrawal_yield": 4.22, "equity_pct": 0, "option_pct": 0, "bond_pct": 100, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 5613, "report_5y_withdrawn": 133000, "report_10y_withdrawn": 133000, "report_5y_reinvested": 163534, "report_10y_reinvested": 201077}, {"id": "s5", "name": "Broad Treasury", "allocation": "34% UTEN / 33% GOVT / 33% IEF", "profile": "Broad intermediate Treasury exposure", "total_return": 4.15, "withdrawal_yield": 4.15, "equity_pct": 0, "option_pct": 0, "bond_pct": 100, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 5520, "report_5y_withdrawn": 133000, "report_10y_withdrawn": 133000, "report_5y_reinvested": 162985, "report_10y_reinvested": 199730}, {"id": "s6", "name": "Max cash payout", "allocation": "100% JEPI", "profile": "Max cash payout / flat principal", "total_return": 8.3, "withdrawal_yield": 7.8, "equity_pct": 0, "option_pct": 100, "bond_pct": 0, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 10374, "report_5y_withdrawn": 136358, "report_10y_withdrawn": 139801, "report_5y_reinvested": 198150, "report_10y_reinvested": 295214}, {"id": "s7", "name": "Municipal", "allocation": "100% MUB", "profile": "Tax-exempt income / national muni", "total_return": 3.3, "withdrawal_yield": 3.3, "equity_pct": 0, "option_pct": 0, "bond_pct": 100, "cash_pct": 0, "tax_exempt": true, "report_annual_payout": 4389, "report_5y_withdrawn": 133000, "report_10y_withdrawn": 133000, "report_5y_reinvested": 156442, "report_10y_reinvested": 184016}], "holdings": [{"key": "s1-JEPI", "strategy_id": "s1", "ticker": "JEPI", "weight": 40}, {"key": "s1-SCHD", "strategy_id": "s1", "ticker": "SCHD", "weight": 35}, {"key": "s1-IEF", "strategy_id": "s1", "ticker": "IEF", "weight": 25}, {"key": "s2-SGOV", "strategy_id": "s2", "ticker": "SGOV", "weight": 40}, {"key": "s2-GOVT", "strategy_id": "s2", "ticker": "GOVT", "weight": 25}, {"key": "s2-SCHD", "strategy_id": "s2", "ticker": "SCHD", "weight": 20}, {"key": "s2-JEPI", "strategy_id": "s2", "ticker": "JEPI", "weight": 10}, {"key": "s2-SCHB", "strategy_id": "s2", "ticker": "SCHB", "weight": 5}, {"key": "s3-SCHD", "strategy_id": "s3", "ticker": "SCHD", "weight": 45}, {"key": "s3-JEPI", "strategy_id": "s3", "ticker": "JEPI", "weight": 40}, {"key": "s3-JEPQ", "strategy_id": "s3", "ticker": "JEPQ", "weight": 15}, {"key": "s4-IBTL", "strategy_id": "s4", "ticker": "IBTL", "weight": 50}, {"key": "s4-IBTR", "strategy_id": "s4", "ticker": "IBTR", "weight": 50}, {"key": "s5-UTEN", "strategy_id": "s5", "ticker": "UTEN", "weight": 34}, {"key": "s5-GOVT", "strategy_id": "s5", "ticker": "GOVT", "weight": 33}, {"key": "s5-IEF", "strategy_id": "s5", "ticker": "IEF", "weight": 33}, {"key": "s6-JEPI", "strategy_id": "s6", "ticker": "JEPI", "weight": 100}, {"key": "s7-MUB", "strategy_id": "s7", "ticker": "MUB", "weight": 100}], "etfs": [{"ticker": "SCHD", "name": "Schwab U.S. Dividend Equity", "type": "Equity \u00b7 dividend", "maturity": "Perpetual", "model_rate": 10.0, "sec_yield": null, "note": "Dividend-paying U.S. stocks; dividends can be cut and prices can fall."}, {"ticker": "SCHB", "name": "Schwab U.S. Broad Market", "type": "Equity \u00b7 broad market", "maturity": "Perpetual", "model_rate": null, "sec_yield": null, "note": "Broad U.S. stock exposure; no separate model rate in the report."}, {"ticker": "JEPI", "name": "JPMorgan Equity Premium Income", "type": "Option income", "maturity": "Perpetual", "model_rate": 8.3, "sec_yield": null, "note": "Stocks plus options-related income; gives up some upside, payments vary."}, {"ticker": "JEPQ", "name": "JPMorgan Nasdaq Equity Premium Income", "type": "Option income", "maturity": "Perpetual", "model_rate": 11.0, "sec_yield": null, "note": "Nasdaq-oriented option income; equity losses remain possible."}, {"ticker": "SGOV", "name": "iShares 0-3 Month Treasury Bond", "type": "Treasury \u00b7 ultra short", "maturity": "0-3 months", "model_rate": 3.7, "sec_yield": null, "note": "Limited duration exposure; distributions reset with short rates."}, {"ticker": "GOVT", "name": "iShares U.S. Treasury Bond", "type": "Treasury \u00b7 broad curve", "maturity": "1-30 years", "model_rate": 4.1, "sec_yield": null, "note": "Broad Treasury exposure across short, intermediate and long maturities."}, {"ticker": "IEF", "name": "iShares 7-10 Year Treasury Bond", "type": "Treasury \u00b7 intermediate", "maturity": "7-10 years", "model_rate": 4.15, "sec_yield": null, "note": "Intermediate Treasuries; share price moves when market yields change."}, {"ticker": "UTEN", "name": "US Treasury 10 Year Note", "type": "Treasury \u00b7 benchmark", "maturity": "10-year note", "model_rate": 4.2, "sec_yield": null, "note": "Tracks the current benchmark 10-year note; rolls continuously."}, {"ticker": "IBTL", "name": "iShares iBonds Dec 2031 Term Treasury", "type": "Treasury \u00b7 target maturity", "maturity": "Dec 2031", "model_rate": 4.15, "sec_yield": null, "note": "Final payout is remaining NAV after liabilities, not guaranteed principal."}, {"ticker": "IBTR", "name": "iShares iBonds Dec 2036 Term Treasury", "type": "Treasury \u00b7 target maturity", "maturity": "Dec 2036", "model_rate": 4.3, "sec_yield": null, "note": "Payout and liquidation NAV vary; reinvestment needed after termination."}, {"ticker": "MUB", "name": "iShares National Muni Bond", "type": "Municipal \u00b7 national", "maturity": "Perpetual \u00b7 7.09-yr duration", "model_rate": 3.3, "sec_yield": 3.88, "note": "Federally tax-exempt income; credit and rate risk; no maturity lock."}], "tax_equiv": [{"rate": 22, "te_yield": 4.97}, {"rate": 24, "te_yield": 5.11}, {"rate": 32, "te_yield": 5.71}, {"rate": 37, "te_yield": 6.16}]};
-  const DEFAULTS = {"amount": 133000, "basis": "nominal", "fee": 0, "infl": 2.5, "mode": "withdraw", "need": 600, "ret": null, "shock": 0, "strategy": "s1", "tax": 0, "wd": null, "years": 10};
+  const DATA = {"strategies": [{"id": "s1", "name": "Balanced income", "allocation": "40% JEPI / 35% SCHD / 25% IEF", "profile": "Moderate risk / intermediate Treasuries", "total_return": 7.85, "withdrawal_yield": 5.53, "equity_pct": 35, "option_pct": 40, "bond_pct": 25, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 7355, "report_5y_withdrawn": 149155, "report_10y_withdrawn": 167280, "report_5y_reinvested": 194068, "report_10y_reinvested": 283175, "group": "Report models", "assumption_basis": "Report"}, {"id": "s2", "name": "Low risk", "allocation": "40% SGOV / 25% GOVT / 20% SCHD / 10% JEPI / 5% SCHB", "profile": "Low risk / broad Treasury", "total_return": 5.18, "withdrawal_yield": 3.95, "equity_pct": 25, "option_pct": 10, "bond_pct": 65, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 5253, "report_5y_withdrawn": 141383, "report_10y_withdrawn": 150294, "report_5y_reinvested": 171206, "report_10y_reinvested": 220386, "group": "Report models", "assumption_basis": "Report"}, {"id": "s3", "name": "Growth & payout", "allocation": "45% SCHD / 40% JEPI / 15% JEPQ", "profile": "High growth & high payout", "total_return": 9.47, "withdrawal_yield": 6.08, "equity_pct": 45, "option_pct": 55, "bond_pct": 0, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 8086, "report_5y_withdrawn": 157124, "report_10y_withdrawn": 185625, "report_5y_reinvested": 209088, "report_10y_reinvested": 328705, "group": "Report models", "assumption_basis": "Report"}, {"id": "s4", "name": "Target maturity", "allocation": "50% IBTL (2031) / 50% IBTR (2036)", "profile": "Target-maturity / income scenario", "total_return": 4.22, "withdrawal_yield": 4.22, "equity_pct": 0, "option_pct": 0, "bond_pct": 100, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 5613, "report_5y_withdrawn": 133000, "report_10y_withdrawn": 133000, "report_5y_reinvested": 163534, "report_10y_reinvested": 201077, "group": "Report models", "assumption_basis": "Report"}, {"id": "s5", "name": "Broad Treasury", "allocation": "34% UTEN / 33% GOVT / 33% IEF", "profile": "Broad intermediate Treasury exposure", "total_return": 4.15, "withdrawal_yield": 4.15, "equity_pct": 0, "option_pct": 0, "bond_pct": 100, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 5520, "report_5y_withdrawn": 133000, "report_10y_withdrawn": 133000, "report_5y_reinvested": 162985, "report_10y_reinvested": 199730, "group": "Report models", "assumption_basis": "Report"}, {"id": "s6", "name": "Max cash payout", "allocation": "100% JEPI", "profile": "Max cash payout / flat principal", "total_return": 8.3, "withdrawal_yield": 7.8, "equity_pct": 0, "option_pct": 100, "bond_pct": 0, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": 10374, "report_5y_withdrawn": 136358, "report_10y_withdrawn": 139801, "report_5y_reinvested": 198150, "report_10y_reinvested": 295214, "group": "Report models", "assumption_basis": "Report"}, {"id": "s7", "name": "Municipal", "allocation": "100% MUB", "profile": "Tax-exempt income / national muni", "total_return": 3.3, "withdrawal_yield": 3.3, "equity_pct": 0, "option_pct": 0, "bond_pct": 100, "cash_pct": 0, "tax_exempt": true, "report_annual_payout": 4389, "report_5y_withdrawn": 133000, "report_10y_withdrawn": 133000, "report_5y_reinvested": 156442, "report_10y_reinvested": 184016, "group": "Report models", "assumption_basis": "Report"}, {"id": "s8", "name": "S&P 500 core", "allocation": "100% SPYM", "profile": "Index growth; income from selling shares", "total_return": 10.0, "withdrawal_yield": null, "equity_pct": 100, "option_pct": 0, "bond_pct": 0, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": null, "report_5y_withdrawn": null, "report_10y_withdrawn": null, "report_5y_reinvested": null, "report_10y_reinvested": null, "group": "Index-based strategies", "assumption_basis": "Added for this dashboard"}, {"id": "s9", "name": "Nasdaq-100 core", "allocation": "100% QNDX", "profile": "Concentrated growth; highest volatility", "total_return": 11.5, "withdrawal_yield": null, "equity_pct": 100, "option_pct": 0, "bond_pct": 0, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": null, "report_5y_withdrawn": null, "report_10y_withdrawn": null, "report_5y_reinvested": null, "report_10y_reinvested": null, "group": "Index-based strategies", "assumption_basis": "Added for this dashboard"}, {"id": "s10", "name": "S&P 500 + cash", "allocation": "80% SPYM / 20% SGOV", "profile": "Growth with a multi-year spending reserve", "total_return": 8.74, "withdrawal_yield": null, "equity_pct": 80, "option_pct": 0, "bond_pct": 0, "cash_pct": 20, "tax_exempt": false, "report_annual_payout": null, "report_5y_withdrawn": null, "report_10y_withdrawn": null, "report_5y_reinvested": null, "report_10y_reinvested": null, "group": "Index-based strategies", "assumption_basis": "Added for this dashboard"}, {"id": "s11", "name": "Balanced 60/40", "allocation": "45% VTI / 15% VXUS / 40% BND", "profile": "Global stocks with a core bond ballast", "total_return": 7.42, "withdrawal_yield": null, "equity_pct": 60, "option_pct": 0, "bond_pct": 40, "cash_pct": 0, "tax_exempt": false, "report_annual_payout": null, "report_5y_withdrawn": null, "report_10y_withdrawn": null, "report_5y_reinvested": null, "report_10y_reinvested": null, "group": "Index-based strategies", "assumption_basis": "Added for this dashboard"}, {"id": "s12", "name": "Conservative 40/60", "allocation": "30% VTI / 10% VXUS / 30% BND / 20% VTIP / 10% SGOV", "profile": "Capital preservation with inflation protection", "total_return": 6.26, "withdrawal_yield": null, "equity_pct": 40, "option_pct": 0, "bond_pct": 50, "cash_pct": 10, "tax_exempt": false, "report_annual_payout": null, "report_5y_withdrawn": null, "report_10y_withdrawn": null, "report_5y_reinvested": null, "report_10y_reinvested": null, "group": "Index-based strategies", "assumption_basis": "Added for this dashboard"}, {"id": "s13", "name": "Three-bucket", "allocation": "10% SGOV / 30% BND / 40% SPYM / 20% SCHD", "profile": "Cash, bond and growth buckets for withdrawals", "total_return": 7.66, "withdrawal_yield": null, "equity_pct": 60, "option_pct": 0, "bond_pct": 30, "cash_pct": 10, "tax_exempt": false, "report_annual_payout": null, "report_5y_withdrawn": null, "report_10y_withdrawn": null, "report_5y_reinvested": null, "report_10y_reinvested": null, "group": "Index-based strategies", "assumption_basis": "Added for this dashboard"}], "holdings": [{"key": "s1-JEPI", "strategy_id": "s1", "ticker": "JEPI", "weight": 40}, {"key": "s1-SCHD", "strategy_id": "s1", "ticker": "SCHD", "weight": 35}, {"key": "s1-IEF", "strategy_id": "s1", "ticker": "IEF", "weight": 25}, {"key": "s2-SGOV", "strategy_id": "s2", "ticker": "SGOV", "weight": 40}, {"key": "s2-GOVT", "strategy_id": "s2", "ticker": "GOVT", "weight": 25}, {"key": "s2-SCHD", "strategy_id": "s2", "ticker": "SCHD", "weight": 20}, {"key": "s2-JEPI", "strategy_id": "s2", "ticker": "JEPI", "weight": 10}, {"key": "s2-SCHB", "strategy_id": "s2", "ticker": "SCHB", "weight": 5}, {"key": "s3-SCHD", "strategy_id": "s3", "ticker": "SCHD", "weight": 45}, {"key": "s3-JEPI", "strategy_id": "s3", "ticker": "JEPI", "weight": 40}, {"key": "s3-JEPQ", "strategy_id": "s3", "ticker": "JEPQ", "weight": 15}, {"key": "s4-IBTL", "strategy_id": "s4", "ticker": "IBTL", "weight": 50}, {"key": "s4-IBTR", "strategy_id": "s4", "ticker": "IBTR", "weight": 50}, {"key": "s5-UTEN", "strategy_id": "s5", "ticker": "UTEN", "weight": 34}, {"key": "s5-GOVT", "strategy_id": "s5", "ticker": "GOVT", "weight": 33}, {"key": "s5-IEF", "strategy_id": "s5", "ticker": "IEF", "weight": 33}, {"key": "s6-JEPI", "strategy_id": "s6", "ticker": "JEPI", "weight": 100}, {"key": "s7-MUB", "strategy_id": "s7", "ticker": "MUB", "weight": 100}, {"key": "s8-SPYM", "strategy_id": "s8", "ticker": "SPYM", "weight": 100}, {"key": "s9-QNDX", "strategy_id": "s9", "ticker": "QNDX", "weight": 100}, {"key": "s10-SPYM", "strategy_id": "s10", "ticker": "SPYM", "weight": 80}, {"key": "s10-SGOV", "strategy_id": "s10", "ticker": "SGOV", "weight": 20}, {"key": "s11-VTI", "strategy_id": "s11", "ticker": "VTI", "weight": 45}, {"key": "s11-VXUS", "strategy_id": "s11", "ticker": "VXUS", "weight": 15}, {"key": "s11-BND", "strategy_id": "s11", "ticker": "BND", "weight": 40}, {"key": "s12-VTI", "strategy_id": "s12", "ticker": "VTI", "weight": 30}, {"key": "s12-VXUS", "strategy_id": "s12", "ticker": "VXUS", "weight": 10}, {"key": "s12-BND", "strategy_id": "s12", "ticker": "BND", "weight": 30}, {"key": "s12-VTIP", "strategy_id": "s12", "ticker": "VTIP", "weight": 20}, {"key": "s12-SGOV", "strategy_id": "s12", "ticker": "SGOV", "weight": 10}, {"key": "s13-SGOV", "strategy_id": "s13", "ticker": "SGOV", "weight": 10}, {"key": "s13-BND", "strategy_id": "s13", "ticker": "BND", "weight": 30}, {"key": "s13-SPYM", "strategy_id": "s13", "ticker": "SPYM", "weight": 40}, {"key": "s13-SCHD", "strategy_id": "s13", "ticker": "SCHD", "weight": 20}], "etfs": [{"ticker": "SCHD", "name": "Schwab U.S. Dividend Equity", "type": "Equity \u00b7 dividend", "maturity": "Perpetual", "model_rate": 10.0, "sec_yield": null, "note": "Dividend-paying U.S. stocks; dividends can be cut and prices can fall.", "expense_ratio": 0.06, "rate_source": "Report", "est_volatility": 14.0, "risk_class": "equity"}, {"ticker": "SCHB", "name": "Schwab U.S. Broad Market", "type": "Equity \u00b7 broad market", "maturity": "Perpetual", "model_rate": null, "sec_yield": null, "note": "Broad U.S. stock exposure; no separate model rate in the report.", "expense_ratio": 0.03, "rate_source": "Not modeled", "est_volatility": 15.5, "risk_class": "equity"}, {"ticker": "JEPI", "name": "JPMorgan Equity Premium Income", "type": "Option income", "maturity": "Perpetual", "model_rate": 8.3, "sec_yield": null, "note": "Stocks plus options-related income; gives up some upside, payments vary.", "expense_ratio": 0.35, "rate_source": "Report", "est_volatility": 10.0, "risk_class": "equity"}, {"ticker": "JEPQ", "name": "JPMorgan Nasdaq Equity Premium Income", "type": "Option income", "maturity": "Perpetual", "model_rate": 11.0, "sec_yield": null, "note": "Nasdaq-oriented option income; equity losses remain possible.", "expense_ratio": 0.35, "rate_source": "Report", "est_volatility": 16.0, "risk_class": "equity"}, {"ticker": "SGOV", "name": "iShares 0-3 Month Treasury Bond", "type": "Treasury \u00b7 ultra short", "maturity": "0-3 months", "model_rate": 3.7, "sec_yield": null, "note": "Limited duration exposure; distributions reset with short rates.", "expense_ratio": 0.09, "rate_source": "Report", "est_volatility": 0.5, "risk_class": "cash"}, {"ticker": "GOVT", "name": "iShares U.S. Treasury Bond", "type": "Treasury \u00b7 broad curve", "maturity": "1-30 years", "model_rate": 4.1, "sec_yield": null, "note": "Broad Treasury exposure across short, intermediate and long maturities.", "expense_ratio": 0.05, "rate_source": "Report", "est_volatility": 5.0, "risk_class": "bond"}, {"ticker": "IEF", "name": "iShares 7-10 Year Treasury Bond", "type": "Treasury \u00b7 intermediate", "maturity": "7-10 years", "model_rate": 4.15, "sec_yield": null, "note": "Intermediate Treasuries; share price moves when market yields change.", "expense_ratio": 0.15, "rate_source": "Report", "est_volatility": 7.0, "risk_class": "bond"}, {"ticker": "UTEN", "name": "US Treasury 10 Year Note", "type": "Treasury \u00b7 benchmark", "maturity": "10-year note", "model_rate": 4.2, "sec_yield": null, "note": "Tracks the current benchmark 10-year note; rolls continuously.", "expense_ratio": 0.15, "rate_source": "Report", "est_volatility": 7.5, "risk_class": "bond"}, {"ticker": "IBTL", "name": "iShares iBonds Dec 2031 Term Treasury", "type": "Treasury \u00b7 target maturity", "maturity": "Dec 2031", "model_rate": 4.15, "sec_yield": null, "note": "Final payout is remaining NAV after liabilities, not guaranteed principal.", "expense_ratio": 0.07, "rate_source": "Report", "est_volatility": 5.0, "risk_class": "bond"}, {"ticker": "IBTR", "name": "iShares iBonds Dec 2036 Term Treasury", "type": "Treasury \u00b7 target maturity", "maturity": "Dec 2036", "model_rate": 4.3, "sec_yield": null, "note": "Payout and liquidation NAV vary; reinvestment needed after termination.", "expense_ratio": 0.07, "rate_source": "Report", "est_volatility": 7.0, "risk_class": "bond"}, {"ticker": "MUB", "name": "iShares National Muni Bond", "type": "Municipal \u00b7 national", "maturity": "Perpetual \u00b7 7.09-yr duration", "model_rate": 3.3, "sec_yield": 3.88, "note": "Federally tax-exempt income; credit and rate risk; no maturity lock.", "expense_ratio": 0.05, "rate_source": "Report", "est_volatility": 4.5, "risk_class": "bond"}, {"ticker": "SPYM", "name": "State Street SPDR Portfolio S&P 500", "type": "Equity \u00b7 S&P 500 index", "maturity": "Perpetual", "model_rate": 10.0, "sec_yield": null, "note": "Same index as SPY at a fraction of the cost; dividends near 1%, so most income comes from selling shares.", "expense_ratio": 0.02, "rate_source": "Added assumption", "est_volatility": 15.0, "risk_class": "equity"}, {"ticker": "QNDX", "name": "State Street SPDR Portfolio Nasdaq 100", "type": "Equity \u00b7 Nasdaq-100 index", "maturity": "Perpetual", "model_rate": 11.5, "sec_yield": null, "note": "Lowest-cost Nasdaq-100 tracker (launched Jun 2026); same index as QQQ and QQQM (0.15%), which are larger and trade with tighter spreads. Tech-heavy, about 1.3\u00d7 the S&P 500\u2019s daily moves.", "expense_ratio": 0.1, "rate_source": "Added assumption", "est_volatility": 22.0, "risk_class": "equity"}, {"ticker": "VTI", "name": "Vanguard Total Stock Market", "type": "Equity \u00b7 total U.S. market", "maturity": "Perpetual", "model_rate": 10.0, "sec_yield": null, "note": "Every U.S. size segment in one fund; broader than the S&P 500.", "expense_ratio": 0.03, "rate_source": "Added assumption", "est_volatility": 15.5, "risk_class": "equity"}, {"ticker": "VXUS", "name": "Vanguard Total International Stock", "type": "Equity \u00b7 international", "maturity": "Perpetual", "model_rate": 8.0, "sec_yield": null, "note": "Developed and emerging markets outside the U.S.; adds currency risk and diversification.", "expense_ratio": 0.05, "rate_source": "Added assumption", "est_volatility": 16.0, "risk_class": "equity"}, {"ticker": "BND", "name": "Vanguard Total Bond Market", "type": "Bonds \u00b7 core aggregate", "maturity": "Intermediate \u00b7 ~6-yr duration", "model_rate": 4.3, "sec_yield": null, "note": "Investment-grade Treasuries, corporates and mortgages; price falls when rates rise.", "expense_ratio": 0.03, "rate_source": "Added assumption", "est_volatility": 5.5, "risk_class": "bond"}, {"ticker": "VTIP", "name": "Vanguard Short-Term Inflation-Protected Securities", "type": "Treasury \u00b7 short-term TIPS", "maturity": "0-5 years \u00b7 ~2.5-yr duration", "model_rate": 4.0, "sec_yield": null, "note": "Principal adjusts with CPI; short maturities limit rate risk.", "expense_ratio": 0.03, "rate_source": "Added assumption", "est_volatility": 3.0, "risk_class": "bond"}], "tax_equiv": [{"rate": 22, "te_yield": 4.97}, {"rate": 24, "te_yield": 5.11}, {"rate": 32, "te_yield": 5.71}, {"rate": 37, "te_yield": 6.16}], "risk_corr": [{"pair": "equity-equity", "class_a": "equity", "class_b": "equity", "correlation": 0.85}, {"pair": "bond-bond", "class_a": "bond", "class_b": "bond", "correlation": 0.75}, {"pair": "equity-bond", "class_a": "equity", "class_b": "bond", "correlation": 0.1}, {"pair": "equity-cash", "class_a": "equity", "class_b": "cash", "correlation": 0.0}, {"pair": "bond-cash", "class_a": "bond", "class_b": "cash", "correlation": 0.1}, {"pair": "cash-cash", "class_a": "cash", "class_b": "cash", "correlation": 1.0}]};
+  const DEFAULTS = {"amount": 100000, "basis": "nominal", "fee": 0, "infl": 2.5, "mode": "withdraw", "need": null, "ret": null, "shock": 0, "strategy": "s1", "tax": 0, "wd": null, "years": 10, "wr": null, "wrscope": "selected"};
   let params = {...DEFAULTS};
   const listeners = [], draws = [];
   let queued = false;
@@ -67,16 +67,17 @@ window.dash = (() => {
   --mk-navy:#04132e; --mk-blue:#1c6e8c; --mk-teal:#2a8c82; --mk-gold:#c8a04a; --mk-coral:#a8432e; --mk-slate:#7a9aab; --mk-gray:#b9b2a4;
   --mk-blue-t:#fbf7ec; --mk-gold-t:rgba(200,160,74,.20); --mk-teal-t:rgba(42,140,130,.12); --mk-coral-t:rgba(168,67,46,.10);
   --mk-s1:#04132e; --mk-s2:#1c6e8c; --mk-s3:#2a8c82; --mk-s4:#c8a04a; --mk-s5:#a8432e; --mk-s6:#7a9aab; --mk-s7:#b9b2a4;
+  --mk-s8:#3a4756; --mk-s9:#5b8fb9; --mk-s10:#6fb3a5; --mk-s11:#8a6d2b; --mk-s12:#d08c74; --mk-s13:#5e5a52;
   --mk-mono: ui-monospace, "SFMono-Regular", "IBM Plex Mono", Menlo, Consolas, monospace;
   background:var(--mk-page); color:var(--mk-ink); font-family:var(--font-anthropic-sans); min-height:100%; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ex { --mk-page:#070f1d; --mk-card:#0d1a2e; --mk-line:#23324a; --mk-ink:#e9edf2; --mk-muted:#a39c8f; --mk-shade:#1a2940;
   --mk-navy:#dfe6ef; --mk-blue:#5aa9c6; --mk-teal:#4fb5a9; --mk-gold:#d4ae5c; --mk-coral:#d9735d; --mk-slate:#8fb0c2; --mk-gray:#6f6a60;
   --mk-blue-t:#16213a; --mk-gold-t:rgba(212,174,92,.20); --mk-teal-t:rgba(79,181,169,.16); --mk-coral-t:rgba(217,115,93,.16);
-  --mk-s1:#dfe6ef; --mk-s2:#5aa9c6; --mk-s3:#4fb5a9; --mk-s4:#d4ae5c; --mk-s5:#d9735d; --mk-s6:#8fb0c2; --mk-s7:#6f6a60; } }
+  --mk-s1:#dfe6ef; --mk-s2:#5aa9c6; --mk-s3:#4fb5a9; --mk-s4:#d4ae5c; --mk-s5:#d9735d; --mk-s6:#8fb0c2; --mk-s7:#6f6a60; --mk-s8:#c3ccd8; --mk-s9:#8db8db; --mk-s10:#8fd0c3; --mk-s11:#e3c47f; --mk-s12:#eba58e; --mk-s13:#b5aea2; } }
 :root[data-theme="dark"] .ex { --mk-page:#070f1d; --mk-card:#0d1a2e; --mk-line:#23324a; --mk-ink:#e9edf2; --mk-muted:#a39c8f; --mk-shade:#1a2940;
   --mk-navy:#dfe6ef; --mk-blue:#5aa9c6; --mk-teal:#4fb5a9; --mk-gold:#d4ae5c; --mk-coral:#d9735d; --mk-slate:#8fb0c2; --mk-gray:#6f6a60;
   --mk-blue-t:#16213a; --mk-gold-t:rgba(212,174,92,.20); --mk-teal-t:rgba(79,181,169,.16); --mk-coral-t:rgba(217,115,93,.16);
-  --mk-s1:#dfe6ef; --mk-s2:#5aa9c6; --mk-s3:#4fb5a9; --mk-s4:#d4ae5c; --mk-s5:#d9735d; --mk-s6:#8fb0c2; --mk-s7:#6f6a60; }
+  --mk-s1:#dfe6ef; --mk-s2:#5aa9c6; --mk-s3:#4fb5a9; --mk-s4:#d4ae5c; --mk-s5:#d9735d; --mk-s6:#8fb0c2; --mk-s7:#6f6a60; --mk-s8:#c3ccd8; --mk-s9:#8db8db; --mk-s10:#8fd0c3; --mk-s11:#e3c47f; --mk-s12:#eba58e; --mk-s13:#b5aea2; }
 .ex p { margin:0; }
 .ex .ex-wrap { max-width:78rem; margin-inline:auto; padding-inline:clamp(1rem,3vw,2rem); }
 .ex-mono { font-family:var(--mk-mono); letter-spacing:.16em; text-transform:uppercase; font-size:.72rem; }
@@ -111,18 +112,43 @@ window.dash = (() => {
 .ex-inputs-card { padding:1.2rem 1.35rem 1.35rem; }
 .ex-inhead { display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; padding-bottom:.85rem; border-bottom:2px solid var(--mk-navy); }
 .ex-inhead .d { font-size:var(--cds-font-size-caption); color:var(--mk-muted); }
-.ex-reset { font-family:var(--mk-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; padding:.45rem .85rem; border:1px solid var(--mk-navy); border-radius:2px; background:transparent; color:var(--mk-navy); cursor:pointer; }
+.ex-hctl { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+.ex-hctl label { font-size:var(--cds-font-size-caption); font-weight:600; color:var(--mk-ink); }
+.ex-hctl select { height:2.5rem; padding:0 2.2rem 0 .6rem; font-family:inherit; font-size:.92rem; color:var(--mk-ink); background:var(--mk-card); border:1px solid var(--mk-line); border-bottom:2px solid var(--mk-navy); border-radius:0; margin-right:.4rem; }
+.ex-combo { position:relative; }
+.ex-combo input { padding-right:2.6rem; -moz-appearance:textfield; }
+.ex-combo input::-webkit-outer-spin-button, .ex-combo input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.ex-combo::before { content:""; position:absolute; right:2.3rem; top:.45rem; bottom:.45rem; width:1px; background:var(--mk-line); pointer-events:none; }
+.ex-combo::after { content:""; position:absolute; right:.95rem; top:50%; width:.42rem; height:.42rem; border-right:2px solid var(--mk-navy); border-bottom:2px solid var(--mk-navy); transform:translateY(-70%) rotate(45deg); pointer-events:none; }
+
+.ex .ex-combo .ex-preset { position:absolute; right:0; top:0; width:2.3rem; height:100%; opacity:0; cursor:pointer; border:0; padding:0; }
+.ex-combo .ex-preset:focus-visible + * { outline:2px solid var(--mk-gold); }
+.ex .ex-field select, .ex .ex-hctl select { -webkit-appearance:none; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%2304132e' stroke-width='2'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right .9rem center; padding-right:2.6rem; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ex .ex-field select, :root:not([data-theme="light"]) .ex .ex-hctl select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23dfe6ef' stroke-width='2'/%3E%3C/svg%3E"); } }
+:root[data-theme="dark"] .ex .ex-field select, :root[data-theme="dark"] .ex .ex-hctl select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23dfe6ef' stroke-width='2'/%3E%3C/svg%3E"); }
+.ex-combo::after { border:0; transform:translateY(-50%); width:12px; height:8px; right:.9rem; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%2304132e' stroke-width='2'/%3E%3C/svg%3E"); background-repeat:no-repeat; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ex-combo::after { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23dfe6ef' stroke-width='2'/%3E%3C/svg%3E"); } }
+:root[data-theme="dark"] .ex-combo::after { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23dfe6ef' stroke-width='2'/%3E%3C/svg%3E"); }
+.ex-combo::before { display:none; }
+.ex-field.ex-key-field input { border-bottom-color:var(--mk-gold); background:var(--mk-blue-t); font-weight:600; }
+.ex .ex-field input.is-auto { color:var(--mk-muted); font-weight:400; }
+.ex-field select:disabled { opacity:.5; cursor:not-allowed; }
+.ex-hint b { color:var(--mk-ink); font-weight:600; }
+.ex-reset { font-family:var(--mk-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; height:2.5rem; padding:0 1rem; border:1px solid var(--mk-navy); border-radius:2px; background:transparent; color:var(--mk-navy); cursor:pointer; }
 .ex-reset:hover { background:var(--mk-gold); border-color:var(--mk-gold); color:#1c1304; }
-.ex-groups { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr)); gap:0; }
-.ex-group { padding:1rem 1.25rem .2rem 0; min-width:0; }
-.ex-group + .ex-group { border-left:1px solid var(--mk-line); padding-left:1.25rem; }
+.ex-groups { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:2.5rem; }
+.ex-group { padding:1rem 0 .2rem; min-width:0; position:relative; }
+.ex-group + .ex-group::before { content:""; position:absolute; left:-1.25rem; top:0; bottom:0; width:1px; background:var(--mk-line); }
 .ex-group .gk { color:var(--mk-gold); display:block; margin-bottom:.85rem; }
-.ex-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.9rem 1rem; }
+.ex-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.15rem 1rem; }
 .ex-field { display:flex; flex-direction:column; min-width:0; }
-.ex-field label { display:flex; align-items:flex-end; min-height:2.6em; font-size:var(--cds-font-size-caption); font-weight:600; color:var(--mk-ink); line-height:1.3; margin-bottom:.35rem; }
-.ex-field input, .ex-field select { width:100%; height:2.5rem; box-sizing:border-box; margin:0; padding:0 .6rem; font-family:inherit; font-size:var(--cds-font-size-body); line-height:1.2; color:var(--mk-ink); background:var(--mk-card); border:1px solid var(--mk-line); border-bottom:2px solid var(--mk-navy); border-radius:0; font-variant-numeric:tabular-nums; }
-.ex-field input:focus, .ex-field select:focus { outline:none; border-bottom-color:var(--mk-gold); background:var(--mk-blue-t); }
-.ex-hint { font-size:var(--cds-font-size-caption); color:var(--mk-muted); margin-top:.3rem; line-height:1.35; min-height:2.7em; }
+.ex-field label { display:flex; align-items:flex-end; min-height:1.3em; white-space:nowrap; font-size:var(--cds-font-size-caption); font-weight:600; color:var(--mk-ink); line-height:1.3; margin-bottom:.35rem; }
+.ex-field input, .ex-field select { width:100%; height:2.5rem; box-sizing:border-box; margin:0; padding:0 .6rem; font-family:inherit; font-size:.92rem; line-height:1.2; color:var(--mk-ink); background:var(--mk-card); border:1px solid var(--mk-line); border-bottom:2px solid var(--mk-navy); border-radius:0; font-variant-numeric:tabular-nums; }
+.ex-field input:focus, .ex-field select:focus { outline:none; border-bottom-color:var(--mk-gold); background-color:var(--mk-blue-t); }
+.ex-hint { font-size:var(--cds-font-size-caption); color:var(--mk-muted); margin-top:.35rem; line-height:1.35; min-height:1.35em; text-wrap:balance; }
+@media (max-width: 1279px) and (min-width: 901px) { .ex-fields { grid-template-columns:1fr; } }
+@media (max-width: 900px) { .ex-groups { grid-template-columns:1fr; column-gap:0; } .ex-group + .ex-group::before { display:none; } .ex-group + .ex-group { border-top:1px solid var(--mk-line); margin-top:.6rem; } }
+@media (max-width: 480px) { .ex-fields { grid-template-columns:1fr; } .ex-field label { white-space:normal; } }
 
 /* section heads */
 .ex-sec { display:flex; flex-direction:column; min-width:0; }
@@ -152,8 +178,20 @@ window.dash = (() => {
 .ex-tip .r { display:flex; align-items:center; gap:.4rem; } .ex-tip .r b { margin-left:auto; padding-left:.8rem; font-weight:600; }
 .ex-legend { display:flex; flex-wrap:wrap; gap:.35rem 1.1rem; margin-top:.2rem; padding-top:.6rem; border-top:1px solid var(--mk-line); }
 .ex-legend button { display:inline-flex; align-items:center; gap:.4rem; background:none; border:0; padding:.15rem 0; color:var(--mk-muted); font-family:inherit; font-size:var(--cds-font-size-caption); cursor:pointer; }
+.ex-lgrp { display:flex; flex-wrap:wrap; align-items:center; gap:.35rem 1.1rem; width:100%; }
+.ex-lgrp + .ex-lgrp { margin-top:.35rem; }
+.ex-lgrp .gl { color:var(--mk-gold); font-size:.66rem; min-width:13rem; }
+.ex .ex-table tbody tr.grp td, .ex .ex-table tbody tr.grp:hover td { background:var(--mk-card); font-family:var(--mk-mono); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--mk-gold); font-weight:600; padding-top:.9rem; border-bottom:1px solid var(--mk-gold); }
 .ex-legend button.on { color:var(--mk-ink); font-weight:700; box-shadow:inset 0 -2px 0 var(--mk-gold); }
 
+/* risk vs return */
+.ex-chart.rr { min-height:360px; margin-bottom:.8rem; }
+.ex-rr th[data-sort] { cursor:pointer; user-select:none; }
+.ex-rr th[data-sort]:hover { color:#c8a04a; }
+.ex-rr th[aria-sort="ascending"]::after { content:" ▲"; color:#c8a04a; font-size:.6rem; }
+.ex-rr th[aria-sort="descending"]::after { content:" ▼"; color:#c8a04a; font-size:.6rem; }
+.ex-table td.ex-top { color:var(--mk-gold); font-weight:700; }
+.ex-rr td .rsw { display:inline-block; width:.6rem; height:.6rem; margin-right:.45rem; vertical-align:.02em; }
 /* allocation */
 .ex-hold { display:flex; flex-direction:column; gap:.6rem; margin-top:.3rem; }
 .ex-hrow { display:grid; grid-template-columns:3.4rem 1fr auto; align-items:center; gap:.7rem; font-size:var(--cds-font-size-caption); font-variant-numeric:tabular-nums; }
@@ -163,18 +201,40 @@ window.dash = (() => {
 .ex-mixwrap .hk { color:var(--mk-gold); display:block; margin-bottom:.55rem; }
 .ex-mix { display:flex; height:26px; overflow:hidden; }
 .ex-mix span { display:flex; align-items:center; justify-content:center; color:#fff; font-size:.72rem; font-weight:700; min-width:0; white-space:nowrap; overflow:hidden; }
-.ex-mixleg { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,8.5rem),1fr)); gap:.6rem .9rem; margin-top:.75rem; }
+.ex-mixleg { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.6rem .9rem; margin-top:.75rem; }
+@media (max-width: 480px) { .ex-mixleg { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 .ex-mixleg .r { display:grid; grid-template-columns:.72rem 1fr; column-gap:.45rem; align-items:center; }
 .ex-mixleg .nm { font-size:var(--cds-font-size-caption); color:var(--mk-muted); }
 .ex-mixleg .vl { grid-column:2; font-size:var(--cds-font-size-caption); color:var(--mk-muted); font-variant-numeric:tabular-nums; }
 .ex .ex-mixleg .vl b { font-family:var(--font-anthropic-serif); font-weight:400; font-size:1.2rem; color:var(--mk-ink); margin-right:.3rem; }
 
+/* strategy box: show name only; list keeps full allocation */
+.ex-selwrap { position:relative; }
+.ex .ex-selwrap select { color:transparent; text-shadow:none; }
+.ex .ex-selwrap select option { color:var(--mk-ink); background:var(--mk-card); }
+.ex-selname { position:absolute; left:calc(.6rem + 1px); right:1.85rem; top:1px; display:block; line-height:calc(2.5rem - 4px); pointer-events:none;
+  font-size:.92rem; color:var(--mk-ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+/* allocation profile + fund table */
+@media (min-width: 900px) { .ex-grid .ex-sech h2 { min-height:2.5em; } }
+.ex-ftab td .fn { color:var(--mk-muted); font-size:.72rem; margin-top:.1rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:9.5rem; }
+.ex-ftab td { padding-top:.45rem; padding-bottom:.45rem; }
+.ex-ftab td .wb { display:flex; align-items:center; gap:.5rem; min-width:6rem; }
+.ex-ftab td .wb i { display:block; height:10px; flex:none; }
+.ex-prof { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--mk-line); border-left:1px solid var(--mk-line); }
+.ex-prof > div { padding:.7rem .8rem .65rem; border-right:1px solid var(--mk-line); border-bottom:1px solid var(--mk-line); min-width:0; }
+.ex-prof .pk { font-size:.72rem; color:var(--mk-muted); line-height:1.3; }
+.ex-prof .pv { font-family:var(--font-anthropic-serif); font-size:1.45rem; line-height:1.1; margin-top:.3rem; color:var(--mk-ink); font-variant-numeric:tabular-nums; }
+.ex-prof .ps { font-size:.72rem; color:var(--mk-muted); margin-top:.2rem; }
+.ex-prof .pv.ex-bad { color:var(--mk-coral); } .ex-prof .pv.ex-top { color:var(--mk-gold); }
+@media (max-width: 480px) { .ex-prof { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 /* tables */
+.ex-table tbody tr.tot td { border-top:1.5px solid var(--mk-navy); background:none; font-weight:700; }
 .ex-scroll { overflow:auto; max-height:30rem; }
 .ex-table { width:100%; border-collapse:collapse; font-size:var(--cds-font-size-caption); font-variant-numeric:tabular-nums; }
 .ex-table th, .ex-table td { padding:.55rem .55rem; text-align:right; white-space:nowrap; }
 .ex-table th:first-child, .ex-table td:first-child { text-align:left; padding-left:.65rem; }
 .ex-table th.l, .ex-table td.l { text-align:left; white-space:normal; }
+#compare .ex-table tbody td:first-child, #milestones .ex-table tbody td:first-child { min-width:12.5rem; }
 .ex-table thead th { position:sticky; top:0; z-index:1; font-family:var(--mk-mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:#fff; font-weight:600; background:#04132e; vertical-align:bottom; }
 .ex-table tbody td { border-bottom:1px solid var(--mk-line); vertical-align:top; }
 .ex-table tbody tr:nth-child(odd) td { background:color-mix(in srgb,var(--mk-shade) 70%,transparent); }
@@ -226,39 +286,40 @@ window.dash = (() => {
     <section id="inputs" class="ex-card ex-inputs-card">
       <div class="ex-inhead">
         <div><span class="ex-mono" style="color:var(--mk-gold)">Scenario inputs</span><p class="d" style="margin-top:.25rem">Type an amount or rate, or choose from a list. Every figure recalculates.</p></div>
-        <button class="ex-reset" type="button">Reset to report</button>
+        <div class="ex-hctl">
+          <label for="ex-basis">Show values in</label>
+          <select id="ex-basis" data-param="basis" data-kind="text"><option value="nominal">Nominal dollars</option><option value="real">Today’s dollars</option></select>
+          <button class="ex-reset" type="button">Reset to defaults</button>
+        </div>
       </div>
       <div class="ex-groups">
         <div class="ex-group">
           <span class="ex-mono gk">A · Portfolio</span>
           <div class="ex-fields">
-            <div class="ex-field"><label for="ex-amount">Investment amount ($)</label><input id="ex-amount" type="number" inputmode="decimal" step="1000" data-param="amount" data-kind="number" data-min="1000" data-max="100000000"><div class="ex-hint">Capital base to deploy</div></div>
-            <div class="ex-field"><label for="ex-strategy">Strategy</label><select id="ex-strategy" data-draw="strategy-select" data-source="strategies"></select><div class="ex-hint">Or click any chart or table row</div></div>
-            <div class="ex-field"><label for="ex-years">Time horizon</label>
-              <select id="ex-years" data-param="years" data-kind="number" data-min="1" data-max="30"><option value="1">1 year</option><option value="3">3 years</option><option value="5">5 years</option><option value="10">10 years</option><option value="15">15 years</option><option value="20">20 years</option><option value="25">25 years</option><option value="30">30 years</option></select><div class="ex-hint">Report uses 5 and 10 years</div></div>
+            <div class="ex-field"><label for="ex-amount">Investment amount ($)</label><div class="ex-combo"><input id="ex-amount" type="number" inputmode="decimal" step="1000" data-param="amount" data-kind="number" data-min="1000" data-max="100000000"><select class="ex-preset" data-for="ex-amount" aria-label="Investment amount ($) options"><option value="" selected hidden></option><option value="25000">$25,000</option><option value="50000">$50,000</option><option value="75000">$75,000</option><option value="100000">$100,000</option><option value="133000">$133,000</option><option value="150000">$150,000</option><option value="200000">$200,000</option><option value="250000">$250,000</option><option value="500000">$500,000</option><option value="1000000">$1,000,000</option></select></div><div class="ex-hint">Starting balance to invest</div></div>
+            <div class="ex-field"><label for="ex-strategy">Strategy</label><div class="ex-selwrap"><select id="ex-strategy" data-draw="strategy-select" data-source="strategies"></select><span class="ex-selname" data-draw="strategy-label" aria-hidden="true">—</span></div><div class="ex-hint">Or click any chart or row</div></div>
+            <div class="ex-field"><label for="ex-years">Time horizon (years)</label><div class="ex-combo"><input id="ex-years" type="number" inputmode="decimal" step="1" data-param="years" data-kind="number" data-min="1" data-max="40"><select class="ex-preset" data-for="ex-years" aria-label="Time horizon (years) options"><option value="" selected hidden></option><option value="1">1 year</option><option value="3">3 years</option><option value="5">5 years</option><option value="10">10 years</option><option value="15">15 years</option><option value="20">20 years</option><option value="25">25 years</option><option value="30">30 years</option></select></div><div class="ex-hint">Years to project, 1 to 40</div></div>
             <div class="ex-field"><label for="ex-mode">Payout handling</label>
-              <select id="ex-mode" data-param="mode" data-kind="text"><option value="withdraw">Withdraw for spending</option><option value="reinvest">Reinvest payouts</option></select><div class="ex-hint">Drives Exhibits 01 and 05</div></div>
+              <select id="ex-mode" data-param="mode" data-kind="text"><option value="withdraw">Withdraw payouts</option><option value="reinvest">Reinvest payouts</option></select><div class="ex-hint">Spend or reinvest payouts</div></div>
           </div>
         </div>
         <div class="ex-group">
-          <span class="ex-mono gk">B · Income and taxes</span>
+          <span class="ex-mono gk">B · Withdrawals and income</span>
           <div class="ex-fields">
-            <div class="ex-field"><label for="ex-need">Monthly income need ($)</label><input id="ex-need" type="number" inputmode="decimal" step="50" data-param="need" data-kind="number" data-min="0" data-max="1000000"><div class="ex-hint">Report Rule 3 benchmark by default</div></div>
-            <div class="ex-field"><label for="ex-tax">Federal tax rate on payouts</label>
-              <select id="ex-tax" data-param="tax" data-kind="number" data-min="0" data-max="50"><option value="0">0% (excluded)</option><option value="10">10%</option><option value="12">12%</option><option value="22">22%</option><option value="24">24%</option><option value="32">32%</option><option value="35">35%</option><option value="37">37%</option></select><div class="ex-hint">Flat rate; MUB treated as tax-exempt</div></div>
-            <div class="ex-field"><label for="ex-fee">Adviser or account fee (%)</label><input id="ex-fee" type="number" inputmode="decimal" step="0.05" data-param="fee" data-kind="number" data-min="0" data-max="5"><div class="ex-hint">Deducted from total return</div></div>
-            <div class="ex-field"><label for="ex-infl">Inflation rate (%)</label><input id="ex-infl" type="number" inputmode="decimal" step="0.1" data-param="infl" data-kind="number" data-min="0" data-max="15"><div class="ex-hint">Used for today’s-dollar values</div></div>
+            <div class="ex-field ex-key-field"><label for="ex-wr">Withdrawal rate (%)</label><div class="ex-combo"><input id="ex-wr" type="text" inputmode="decimal" autocomplete="off" data-param="wr" data-kind="number" data-optional="1" data-min="0" data-max="25"><select class="ex-preset" data-for="ex-wr" aria-label="Withdrawal rate (%) options"><option value="" selected hidden></option><option value="__clear">Strategy rate (default)</option><option value="4">The 4% Rule (4%)</option><option value="3">3%</option><option value="3.5">3.5%</option><option value="4.5">4.5%</option><option value="5">5%</option><option value="5.5">5.5%</option><option value="6">6%</option><option value="7">7%</option><option value="8">8%</option></select></div><div class="ex-hint"><span class="ex-alt" data-when="wrown">Default: strategy rate – <b data-draw="wr-own">—</b></span><span class="ex-alt" data-when="wrrule" hidden>Default: The 4% Rule – <b>4%</b></span><span class="ex-alt" data-when="wrcustomrule" hidden>Applied: The 4% Rule – <b>4%</b></span><span class="ex-alt" data-when="wrcustomother" hidden>Custom rate – <b data-draw="wr-rate">—</b></span></div></div>
+            <div class="ex-field"><label for="ex-wrscope">Apply rate to</label>
+              <select id="ex-wrscope" data-param="wrscope" data-kind="text"><option value="selected">Selected strategy</option><option value="all">All strategies</option></select><div class="ex-hint"><span class="ex-alt" data-when="wrauto">Set a custom rate to enable</span><span class="ex-alt" data-when="wrsel" hidden>Selected; others unchanged</span><span class="ex-alt" data-when="wrall" hidden>Same rate for every strategy</span></div></div>
+            <div class="ex-field"><label for="ex-need">Monthly income need ($)</label><div class="ex-combo"><input id="ex-need" type="number" inputmode="decimal" step="50" data-param="need" data-kind="number" data-optional="1" data-min="0" data-max="1000000"><select class="ex-preset" data-for="ex-need" aria-label="Monthly income need ($) options"><option value="" selected hidden></option><option value="__clear">Default</option><option value="250">$250</option><option value="300">$300</option><option value="400">$400</option><option value="500">$500</option><option value="600">$600</option><option value="750">$750</option><option value="1000">$1,000</option><option value="1500">$1,500</option><option value="2000">$2,000</option></select></div><div class="ex-hint"><span class="ex-alt" data-when="wrauto">Default: amount × 4% ÷ 12</span><span class="ex-alt" data-when="wrcustom" hidden>Default: amount × rate ÷ 12</span></div></div>
+            <div class="ex-field"><label for="ex-tax">Federal tax rate (%)</label><div class="ex-combo"><input id="ex-tax" type="number" inputmode="decimal" step="1" data-param="tax" data-kind="number" data-min="0" data-max="50"><select class="ex-preset" data-for="ex-tax" aria-label="Federal tax rate on payouts (%) options"><option value="" selected hidden></option><option value="0">0%</option><option value="10">10%</option><option value="12">12%</option><option value="22">22%</option><option value="24">24%</option><option value="32">32%</option><option value="35">35%</option><option value="37">37%</option></select></div><div class="ex-hint">Flat rate; MUB is exempt</div></div>
           </div>
         </div>
         <div class="ex-group">
           <span class="ex-mono gk">C · Assumptions and stress test</span>
           <div class="ex-fields">
-            <div class="ex-field"><label for="ex-basis">Show values in</label>
-              <select id="ex-basis" data-param="basis" data-kind="text"><option value="nominal">Nominal dollars</option><option value="real">Today’s dollars</option></select><div class="ex-hint">Report uses nominal dollars</div></div>
-            <div class="ex-field"><label for="ex-shock">Year-1 market decline</label>
-              <select id="ex-shock" data-param="shock" data-kind="number" data-min="0" data-max="60"><option value="0">None (as in report)</option><option value="10">−10%</option><option value="20">−20%</option><option value="30">−30%</option><option value="40">−40%</option></select><div class="ex-hint">On stock and option-income share</div></div>
-            <div class="ex-field"><label for="ex-ret">Total return override (%)</label><input id="ex-ret" type="number" inputmode="decimal" step="0.05" placeholder="Report assumption" data-param="ret" data-kind="number" data-optional="1" data-min="-20" data-max="25"><div class="ex-hint">Selected strategy; blank = <span data-draw="def-ret">—</span></div></div>
-            <div class="ex-field"><label for="ex-wd">Withdrawal yield override (%)</label><input id="ex-wd" type="number" inputmode="decimal" step="0.05" placeholder="Report assumption" data-param="wd" data-kind="number" data-optional="1" data-min="0" data-max="25"><div class="ex-hint">Selected strategy; blank = <span data-draw="def-wd">—</span></div></div>
+            <div class="ex-field"><label for="ex-fee">Advisory fee (%)</label><div class="ex-combo"><input id="ex-fee" type="number" inputmode="decimal" step="0.05" data-param="fee" data-kind="number" data-min="0" data-max="5"><select class="ex-preset" data-for="ex-fee" aria-label="Adviser or account fee (%) options"><option value="" selected hidden></option><option value="0">0%</option><option value="0.25">0.25%</option><option value="0.5">0.5%</option><option value="0.75">0.75%</option><option value="1">1%</option><option value="1.25">1.25%</option><option value="1.5">1.5%</option></select></div><div class="ex-hint">Deducted from annual return</div></div>
+            <div class="ex-field"><label for="ex-infl">Inflation rate (%)</label><div class="ex-combo"><input id="ex-infl" type="number" inputmode="decimal" step="0.1" data-param="infl" data-kind="number" data-min="0" data-max="15"><select class="ex-preset" data-for="ex-infl" aria-label="Inflation rate (%) options"><option value="" selected hidden></option><option value="2">2%</option><option value="2.5">2.5%</option><option value="3">3%</option><option value="3.5">3.5%</option><option value="4">4%</option><option value="5">5%</option></select></div><div class="ex-hint">Used for today’s dollars</div></div>
+            <div class="ex-field"><label for="ex-shock">Year-1 decline (%)</label><div class="ex-combo"><input id="ex-shock" type="number" inputmode="decimal" step="1" data-param="shock" data-kind="number" data-min="0" data-max="60"><select class="ex-preset" data-for="ex-shock" aria-label="Year-1 market decline (%) options"><option value="" selected hidden></option><option value="0">None</option><option value="10">−10%</option><option value="20">−20%</option><option value="30">−30%</option><option value="40">−40%</option><option value="50">−50%</option></select></div><div class="ex-hint">Applied to stock holdings</div></div>
+            <div class="ex-field"><label for="ex-ret">Return override (%)</label><div class="ex-combo"><input id="ex-ret" type="number" inputmode="decimal" step="0.05" placeholder="Strategy default" data-param="ret" data-kind="number" data-optional="1" data-min="-20" data-max="25"><select class="ex-preset" data-for="ex-ret" aria-label="Total return override (%) options"><option value="" selected hidden></option><option value="__clear">Strategy default</option><option value="3">3%</option><option value="4">4%</option><option value="5">5%</option><option value="6">6%</option><option value="7">7%</option><option value="8">8%</option><option value="9">9%</option><option value="10">10%</option><option value="11">11%</option><option value="12">12%</option></select></div><div class="ex-hint">Default: strategy’s <b data-draw="def-ret">—</b></div></div>
           </div>
         </div>
       </div>
@@ -280,7 +341,7 @@ window.dash = (() => {
       <div class="ex-sech"><span class="no">01</span><div class="tt"><span class="ex-mono k">Portfolio value over time</span>
         <h2><b data-draw="x1-name">—</b> ends <span data-draw="x1-years">—</span> at <b data-draw="x1-val">—</b> with payouts <span data-draw="x1-mode">—</span>, ranking <span data-draw="x1-rank">—</span> of <span data-draw="x1-n">—</span> strategies</h2></div></div>
       <div class="ex-card">
-        <p class="d">Year-end portfolio value by strategy, in <span data-draw="basis2">—</span>. The selected strategy is the bold line; hover for every value, or click a name to select it.</p>
+        <p class="d">Year-end portfolio value by strategy, in <span data-draw="basis2">—</span>. Each strategy has its own color; the selected strategy is the bold line. Hover for every value, or click a name to select it.</p>
         <div class="ex-chart" data-draw="proj"></div>
         <div class="ex-legend" data-draw="proj-legend"></div>
         <p class="src">Source: ETF Strategy Comparison Report, revised Oct 29, 2026; constant-rate model at scenario inputs</p>
@@ -293,20 +354,23 @@ window.dash = (() => {
           <h2 class="ex-alt" data-when="need"><b data-draw="x2-meet">—</b> of <span data-draw="x2-n">—</span> strategies cover a <span data-draw="x2-need">—</span> monthly need after tax</h2>
           <h2 class="ex-alt" data-when="noneed" hidden>Enter a monthly income need to see which strategies cover it after tax</h2></div></div>
         <div class="ex-card">
-          <p class="d">After-tax monthly income in year 1, $. Click a bar to select a strategy.</p>
+          <p class="d">After-tax monthly income in year 1, $. Strategies without a payout yield of their own follow the 4% Rule, so their income matches; change it with Withdrawal rate in Scenario inputs. Click a bar to select a strategy.</p>
           <ul class="ex-key"><li><i class="ex-sw ex-k-meet"></i>Meets need</li><li><i class="ex-sw ex-k-short"></i>Below need</li><li><i class="ex-sw dash"></i>Monthly need</li></ul>
           <div class="ex-chart sm" data-draw="need-chart"></div>
-          <p class="src">Source: report withdrawal yields; tax rate and need from scenario inputs</p>
+          <p class="src">Source: strategy payout yields or the 4% Rule; tax rate and need from scenario inputs</p>
         </div>
       </section>
       <section id="allocation" class="ex-sec" data-source="holdings strategies">
         <div class="ex-sech"><span class="no">03</span><div class="tt"><span class="ex-mono k">Allocation</span>
           <h2><b data-draw="x3-name">—</b> places <span data-draw="x3-pct">—</span> of the portfolio in stock and option-income funds</h2></div></div>
         <div class="ex-card">
-          <p class="d">Fund allocation of your investment amount, $ and % of portfolio.</p>
-          <div class="ex-hold" data-draw="hold"></div>
+          <p class="d">How your investment amount is divided among funds, what each costs to hold, and the strategy’s key characteristics.</p>
+          <div class="ex-scroll"><table class="ex-table ex-ftab">
+            <thead><tr><th class="l">Fund</th><th class="l">Weight</th><th>Amount</th><th>Expense ratio</th><th>Cost / yr</th></tr></thead>
+            <tbody data-draw="hold"></tbody></table></div>
           <div class="ex-mixwrap"><span class="ex-mono hk">Asset class mix</span><div data-draw="mix"></div></div>
-          <p class="src">Source: ETF Strategy Comparison Report, Section 2</p>
+          <div class="ex-mixwrap"><span class="ex-mono hk">Strategy profile</span><div class="ex-prof" data-draw="alloc-profile"></div></div>
+          <p class="src">Source: strategy allocations; fund expense ratios; return, withdrawal and risk at scenario inputs (see Exhibit 05)</p>
         </div>
       </section>
     </div>
@@ -315,16 +379,30 @@ window.dash = (() => {
       <div class="ex-sech"><span class="no">04</span><div class="tt"><span class="ex-mono k">Strategy comparison</span>
         <h2><b data-draw="x4-pay">—</b> pays the most each month; <b data-draw="x4-end">—</b> retains the most principal</h2></div></div>
       <div class="ex-card">
-        <p class="d">All seven strategies at your inputs; ending values are at your <span data-draw="x4-h">—</span> horizon, in <span data-draw="basis5">—</span>. Net rate = total return − fee − withdrawal yield. Click a row to select it.</p>
+        <p class="d">All strategies at your inputs; ending values are at your <span data-draw="x4-h">—</span> horizon, in <span data-draw="basis5">—</span>. Stock share includes option-income funds. Fund cost is the weighted ETF expense ratio. Net rate = total return − fee − withdrawal yield. Click a row to select it.</p>
         <div class="ex-scroll"><table class="ex-table">
-          <thead><tr><th class="l">Strategy</th><th>Total return</th><th>Withdrawal</th><th>Net rate</th><th>Monthly payout</th><th>After-tax monthly</th><th>vs. need</th><th>End principal (withdrawn)</th><th>End value (reinvested)</th></tr></thead>
+          <thead><tr><th class="l">Strategy</th><th>Stock share</th><th>Fund cost</th><th>Total return</th><th>Withdrawal</th><th>Net rate</th><th>Monthly payout</th><th>After-tax monthly</th><th>vs. need</th><th>End principal (withdrawn)</th><th>End value (reinvested)</th></tr></thead>
           <tbody data-draw="cmp-body"></tbody></table></div>
         <p class="src">Source: ETF Strategy Comparison Report, Sections 1 and 3–6; constant-rate model at scenario inputs</p>
       </div>
     </section>
 
+    <section id="risk" class="ex-sec" data-source="strategies holdings etfs risk_corr">
+      <div class="ex-sech"><span class="no">05</span><div class="tt"><span class="ex-mono k">Risk vs. return</span>
+        <h2><b data-draw="rr-best">—</b> earns the most return per unit of risk; <b data-draw="rr-top">—</b> has the highest expected return but ranks <span data-draw="rr-toprisk">—</span> of <span data-draw="rr-n">—</span> on risk</h2></div></div>
+      <div class="ex-card">
+        <p class="d">Expected annual return after fees against estimated volatility (annual standard deviation of returns). Up and to the left is better; dashed lines mark the median strategy. Hover a dot for detail, or click it to select the strategy.</p>
+        <div class="ex-chart rr" data-draw="rr-chart"></div>
+        <div class="ex-scroll"><table class="ex-table ex-rr">
+          <thead><tr><th class="l" data-sort="name">Strategy</th><th data-sort="ret">Expected return</th><th data-sort="vol">Volatility (risk)</th><th data-sort="bad">Bad-year return (1 in 20)</th><th data-sort="ratio">Return per unit of risk</th><th data-sort="r_ret">Return rank</th><th data-sort="r_vol">Risk rank</th><th data-sort="r_ratio" aria-sort="ascending">Risk-adjusted rank</th></tr></thead>
+          <tbody data-draw="rr-body"></tbody></table></div>
+        <p class="d">Return rank: 1 = highest expected return. Risk rank: 1 = lowest volatility. Risk-adjusted rank: 1 = most expected return above cash for each point of volatility. Click a column heading to sort.</p>
+        <p class="src">Source: strategy return assumptions and fees from scenario inputs; volatility and correlations are estimated long-run values by fund and asset class, not forecasts</p>
+      </div>
+    </section>
+
     <section id="yearly" class="ex-sec" data-source="strategies">
-      <div class="ex-sech"><span class="no">05</span><div class="tt"><span class="ex-mono k">Year-by-year schedule</span>
+      <div class="ex-sech"><span class="no">06</span><div class="tt"><span class="ex-mono k">Year-by-year schedule</span>
         <h2><b data-draw="x5-name">—</b> pays out <b data-draw="x5-cum">—</b> over <span data-draw="x5-years">—</span> while principal moves from <span data-draw="x5-start">—</span> to <span data-draw="x5-end">—</span></h2></div></div>
       <div class="ex-card">
         <p class="d">Selected strategy, in <span data-draw="basis3">—</span>. Each payout is the withdrawal yield on that year’s starting balance.</p>
@@ -337,7 +415,7 @@ window.dash = (() => {
 
     <div class="ex-grid">
       <section id="muni" class="ex-sec">
-        <div class="ex-sech"><span class="no">06</span><div class="tt"><span class="ex-mono k">Municipal tax-equivalent yield</span>
+        <div class="ex-sech"><span class="no">07</span><div class="tt"><span class="ex-mono k">Municipal tax-equivalent yield</span>
           <h2 class="ex-alt" data-when="tax">At a <span data-draw="x6-rate">—</span> federal rate, MUB’s <span data-draw="x6-sec">—</span> SEC yield equals <b data-draw="x6-tey">—</b> on a taxable basis</h2>
           <h2 class="ex-alt" data-when="notax" hidden>MUB’s tax advantage grows with your federal rate; choose a rate in Scenario Inputs to compare</h2></div></div>
         <div class="ex-card">
@@ -350,25 +428,26 @@ window.dash = (() => {
         </div>
       </section>
       <section id="notes" class="ex-sec">
-        <div class="ex-sech"><span class="no">07</span><div class="tt"><span class="ex-mono k">Methodology and caveats</span>
+        <div class="ex-sech"><span class="no">08</span><div class="tt"><span class="ex-mono k">Methodology and caveats</span>
           <h2>Read every figure as a scenario, not a promise</h2></div></div>
         <div class="ex-card">
           <ol class="ex-notes">
             <li><span><span class="t">Assumptions, not forecasts.</span> Returns and yields are the report’s constant inputs, not verified history. Real markets have strong and weak years, and their order matters when money is withdrawn.</span></li>
             <li><span><span class="t">Withdrawn and reinvested are alternatives.</span> Spent payouts are not in remaining principal; do not add the two outcomes together.</span></li>
             <li><span><span class="t">No principal guarantee.</span> Treasury, municipal and target-maturity ETFs can fall in price. IBTL terminates before longer horizons, so its proceeds are assumed reinvested at the same rate.</span></li>
+            <li><span><span class="t">Added strategies use dashboard assumptions.</span> Their return rates (Exhibit 10, Rate basis) were set for this dashboard; with no payout yield of their own they withdraw under the 4% Rule, not taken from the report. They use the lowest-cost ETF tracking each index; Nasdaq-100 and S&amp;P 500 funds typically fall further than a market-decline input applied evenly to all stocks.</span></li>
             <li><span><span class="t">Taxes are simplified.</span> One rate applies to taxable payouts; qualified dividends, Georgia tax on a national muni fund, Social Security and Medicare effects are not modeled.</span></li>
           </ol>
-          <p class="src">Source: ETF Strategy Comparison Report, plain-language guide</p>
+          <p class="src">Source: ETF Strategy Comparison Report, plain-language guide; dashboard assumptions</p>
         </div>
       </section>
     </div>
 
     <section id="milestones" class="ex-sec" data-source="strategies">
-      <div class="ex-sech"><span class="no">08</span><div class="tt"><span class="ex-mono k">5- and 10-year milestones</span>
+      <div class="ex-sech"><span class="no">09</span><div class="tt"><span class="ex-mono k">5- and 10-year milestones</span>
         <h2><b data-draw="x8-top">—</b> reaches the highest 10-year value at your inputs, <b data-draw="x8-val">—</b> with payouts reinvested</h2></div></div>
       <div class="ex-card">
-        <p class="d">All seven strategies at your investment amount, fee, market decline and dollar basis (<span data-draw="basis4">—</span>). Payouts are before tax. Click a row to select it.</p>
+        <p class="d">All strategies at your investment amount, fee, market decline and dollar basis (<span data-draw="basis4">—</span>). Payouts are before tax. Click a row to select it.</p>
         <div class="ex-scroll"><table class="ex-table">
           <thead><tr><th class="l">Strategy</th><th>Annual payout, yr 1</th><th>5-yr principal (withdrawn)</th><th>10-yr principal (withdrawn)</th><th>5-yr value (reinvested)</th><th>10-yr value (reinvested)</th></tr></thead>
           <tbody data-draw="ms-body"></tbody></table></div>
@@ -377,14 +456,14 @@ window.dash = (() => {
     </section>
 
     <section id="etfs" class="ex-sec">
-      <div class="ex-sech"><span class="no">09</span><div class="tt"><span class="ex-mono k">ETF reference</span>
+      <div class="ex-sech"><span class="no">10</span><div class="tt"><span class="ex-mono k">ETF reference</span>
         <h2>Each fund plays a distinct role, but none guarantees income or principal</h2></div></div>
       <div class="ex-card">
-        <p class="d">Fund type, maturity structure and the report’s model rates.</p>
+        <p class="d">Fund type, maturity structure, expense ratio and model rate. Rate basis shows whether a rate comes from the report or was added for this dashboard.</p>
         <div class="ex-scroll"><table class="ex-table" data-source="etfs" data-row-key="ticker">
-          <thead><tr><th class="l" data-field="ticker">Ticker</th><th class="l" data-field="name">Fund</th><th class="l" data-field="type">Type</th><th class="l" data-field="maturity">Maturity / duration</th><th data-field="model_rate">Model rate</th><th data-field="sec_yield">SEC yield</th><th class="l" data-field="note">Structure and risk</th></tr></thead>
+          <thead><tr><th class="l" data-field="ticker">Ticker</th><th class="l" data-field="name">Fund</th><th class="l" data-field="type">Type</th><th class="l" data-field="maturity">Maturity / duration</th><th data-field="expense_ratio">Expense ratio</th><th data-field="model_rate">Model rate</th><th class="l" data-field="rate_source">Rate basis</th><th data-field="sec_yield">SEC yield</th><th class="l" data-field="note">Structure and risk</th></tr></thead>
           <tbody data-draw="etf-body"></tbody></table></div>
-        <p class="src">Source: ETF Strategy Comparison Report, Sections 1 and 7</p>
+        <p class="src">Source: ETF Strategy Comparison Report, Sections 1 and 7; issuer expense ratios; added model rates are dashboard assumptions</p>
       </div>
     </section>
 
@@ -402,7 +481,7 @@ window.dash = (() => {
   const axisMoney = (v) => '$' + d3.format('~s')(v);
   const compact = (v) => '$' + new Intl.NumberFormat('en', {notation: 'compact', maximumFractionDigits: 1}).format(v);
   const num = (v) => (v === null || v === undefined || v === '' ? null : Number(v));
-  const IDS = ['strategies', 'holdings', 'etfs', 'tax_equiv'];
+  const IDS = ['strategies', 'holdings', 'etfs', 'tax_equiv', 'risk_corr'];
 
   const ctx = () => {
     const st = IDS.map((id) => dash.data(id));
@@ -410,25 +489,30 @@ window.dash = (() => {
     const raw = dash.params();
     const p = {
       amount: num(raw.amount), strategy: raw.strategy, years: Math.round(num(raw.years) || 10),
-      mode: raw.mode === 'reinvest' ? 'reinvest' : 'withdraw', need: num(raw.need) || 0,
+      mode: raw.mode === 'reinvest' ? 'reinvest' : 'withdraw', need: 0, needAuto: raw.need === null || raw.need === undefined || raw.need === '',
       tax: num(raw.tax) || 0, fee: num(raw.fee) || 0, infl: num(raw.infl) || 0,
       basis: raw.basis === 'real' ? 'real' : 'nominal', shock: num(raw.shock) || 0,
-      ret: num(raw.ret), wd: num(raw.wd),
+      ret: num(raw.ret), wd: null,
+      wr: num(raw.wr) !== null && Number.isFinite(num(raw.wr)) ? num(raw.wr) : null,
+      wrscope: raw.wrscope === 'all' ? 'all' : 'selected',
     };
     if (!(p.amount > 0)) p.amount = null;
+    const needRaw = p.needAuto ? (p.amount || 0) * ((p.wr === null ? 4 : p.wr) / 100) / 12 : (num(raw.need) || 0);
+    p.need = Math.max(0, Math.round(needRaw * 100) / 100 - 0.005);
     const strategies = ok ? st[0].data.map((s) => ({...s,
-      total_return: Number(s.total_return), withdrawal_yield: Number(s.withdrawal_yield),
+      total_return: Number(s.total_return), withdrawal_yield: s.withdrawal_yield === null || s.withdrawal_yield === undefined || s.withdrawal_yield === '' ? null : Number(s.withdrawal_yield),
       equity_pct: Number(s.equity_pct), option_pct: Number(s.option_pct), bond_pct: Number(s.bond_pct), cash_pct: Number(s.cash_pct),
       tax_exempt: s.tax_exempt === true || s.tax_exempt === 'true'})) : [];
     const sel = strategies.find((s) => s.id === p.strategy) || strategies[0];
     return {ok: ok && p.amount !== null, loading: st.some((s) => s.status === 'loading'), p, strategies, sel,
-      holdings: ok ? st[1].data : [], etfs: ok ? st[2].data : [], tax: ok ? st[3].data : []};
+      holdings: ok ? st[1].data : [], etfs: ok ? st[2].data : [], tax: ok ? st[3].data : [], corr: ok ? st[4].data : []};
   };
 
   const run = (s, c) => {
     const p = c.p, isSel = c.sel && s.id === c.sel.id;
     const retPct = isSel && p.ret !== null ? p.ret : s.total_return;
-    const wdPct = isSel && p.wd !== null ? p.wd : s.withdrawal_yield;
+    const usesRate = p.wr !== null && (p.wrscope === 'all' || isSel);
+    const wdPct = usesRate ? p.wr : (s.withdrawal_yield === null ? 4 : s.withdrawal_yield);
     const r = (retPct - p.fee) / 100, w = wdPct / 100;
     const stockShare = (s.equity_pct + s.option_pct) / 100;
     const b0 = p.amount * (1 - (p.shock / 100) * stockShare);
@@ -463,7 +547,14 @@ window.dash = (() => {
     const p = dash.params();
     fields().forEach((el) => {
       if (el === document.activeElement) return;
-      const v = p[el.dataset.param];
+      let v = p[el.dataset.param];
+      if (el.dataset.param === 'need' && (v === null || v === undefined || v === '')) v = ((Number(p.amount) || 0) * ((p.wr === null || p.wr === undefined || p.wr === '' ? 4 : Number(p.wr)) / 100) / 12).toFixed(2);
+      if (el.dataset.param === 'wr') {
+        const auto = v === null || v === undefined || v === '';
+        if (auto) v = 'Strategy rate';
+        el.classList.toggle('is-auto', auto);
+      }
+      if (el.dataset.param === 'wrscope') el.disabled = p.wr === null || p.wr === undefined || p.wr === '';
       el.value = v === null || v === undefined ? '' : String(v);
     });
   };
@@ -477,7 +568,13 @@ window.dash = (() => {
       dash.setParams({[name]: n});
     });
     el.addEventListener('blur', sync);
+    if (el.dataset.param === 'wr') { el.addEventListener('input', () => el.classList.remove('is-auto')); el.addEventListener('focus', () => { if (el.classList.contains('is-auto')) el.select(); }); }
   });
+  document.querySelectorAll('.ex-preset').forEach((sel) => sel.addEventListener('change', () => {
+    const input = document.getElementById(sel.dataset.for);
+    if (input) { input.value = sel.value === '__clear' ? '' : sel.value; input.dispatchEvent(new Event('change')); }
+    sel.value = '';
+  }));
   document.querySelectorAll('.ex-reset').forEach((b) => b.addEventListener('click', () => { dash.resetParams(); sync(); }));
   dash.onData(sync);
 })();
@@ -486,10 +583,16 @@ window.dash = (() => {
   const {ctx, run, money, pct, axisMoney, compact, yearsWord, basisWord} = window.ex;
   const PAL = ['var(--mk-navy)', 'var(--mk-blue)', 'var(--mk-teal)', 'var(--mk-gold)', 'var(--mk-slate)'];
   const MIX = ['var(--mk-navy)', 'var(--mk-blue)', 'var(--mk-teal)', 'var(--mk-gold)'];
-  const SER = (i) => `var(--mk-s${(i % 7) + 1})`;
   
   const ord = (n) => { const s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
-  const pick = (id) => dash.setParams({strategy: id, ret: null, wd: null});
+  const pick = (id) => dash.setParams({strategy: id, ret: null});
+  const grpRow = (tb, name, span) => {
+    const tr = document.createElement('tr'); tr.className = 'grp';
+    const td = document.createElement('td'); td.colSpan = span; td.textContent = name; tr.appendChild(td); tb.appendChild(tr);
+  };
+  const fundCost = (c, s) => c.holdings.filter((h) => h.strategy_id === s.id).reduce((a, h) => {
+    const e = c.etfs.find((x) => x.ticker === h.ticker); return a + (e ? Number(e.expense_ratio) * Number(h.weight) / 100 : 0);
+  }, 0);
 
   const text = (name, fn) => dash.draw(name, (el) => {
     const c = ctx();
@@ -508,13 +611,23 @@ window.dash = (() => {
   });
 
   dash.onData(() => {
-    const p = dash.params(), need = Number(p.need) > 0, tax = Number(p.tax) > 0;
-    const on = {need, noneed: !need, tax, notax: !tax};
+    const p = dash.params(), need = (p.need === null || p.need === undefined || p.need === '') ? Number(p.amount) > 0 : Number(p.need) > 0, tax = Number(p.tax) > 0;
+    const custom = !(p.wr === null || p.wr === undefined || p.wr === '');
+    const g = dash.data('strategies'); const srows = g.status === 'ok' ? g.data : [];
+    const ss = srows.find((x) => x.id === p.strategy) || srows[0];
+    const hasOwn = !!ss && !(ss.withdrawal_yield === null || ss.withdrawal_yield === undefined || ss.withdrawal_yield === '');
+    const isRule = custom && Number(p.wr) === 4;
+    const on = {need, noneed: !need, tax, notax: !tax, wrauto: !custom, wrcustom: custom, wrsel: custom && p.wrscope !== 'all', wrall: custom && p.wrscope === 'all',
+      wrown: !custom && hasOwn, wrrule: !custom && !hasOwn, wrcustomrule: isRule, wrcustomother: custom && !isRule};
     document.querySelectorAll('.ex-alt').forEach((h) => { h.hidden = !on[h.dataset.when]; });
   });
   text('x4-h', (c) => c.p.years + '-year');
   text('basis5', (c) => basisWord(c));
   dash.draw('x6-rate2', (el) => { el.textContent = (Number(dash.params().tax) || 0) + '%'; });
+  text('wr-sname', (c) => c.sel.name);
+  text('wr-rate', (c) => (c.p.wr === null ? '—' : pct(c.p.wr)));
+  dash.draw('strategy-label', (el) => { const c = ctx(); el.textContent = c.sel ? c.sel.name : '—'; });
+  text('wr-own', (c) => (c.sel.withdrawal_yield === null ? '—' : pct(c.sel.withdrawal_yield)));
   text('kfh-basis', (c) => c.sel.allocation + ' · ' + basisWord(c));
 
   /* Header and KPI strip */
@@ -525,11 +638,10 @@ window.dash = (() => {
   text('take-endr', (c, m) => money(m.endR));
   ['basis', 'basis2', 'basis3'].forEach((n) => text(n, (c) => basisWord(c)));
   text('def-ret', (c) => pct(c.sel.total_return));
-  text('def-wd', (c) => pct(c.sel.withdrawal_yield));
   text('t-monthly', (c, m) => money(m.monthly));
   text('t-annual', (c, m) => money(m.annual));
   text('t-aftertax', (c, m) => money(m.afterTax));
-  text('t-taxsub', (c) => (c.sel.tax_exempt ? 'Federally tax-exempt interest' : (c.p.tax ? c.p.tax + '% federal rate applied' : 'Taxes excluded, as in report')));
+  text('t-taxsub', (c) => (c.sel.tax_exempt ? 'Federally tax-exempt interest' : (c.p.tax ? c.p.tax + '% federal rate applied' : 'Taxes excluded')));
   text('t-need', (c) => money(c.p.need));
   dash.draw('t-gap', (el) => {
     const c = ctx();
@@ -606,10 +718,11 @@ window.dash = (() => {
     svg.append('g').selectAll('text').data(xt).join('text').attr('class', 'ex-tick').attr('x', x).attr('y', H - mb + 19).attr('text-anchor', (d) => (d === 0 ? 'start' : d === N ? 'end' : 'middle')).text((d) => (d === 0 ? 'Start' : 'Yr ' + d));
     const line = d3.line().x((d) => x(d.t)).y((d) => y(d.v));
     const ordered = series.filter((s) => s !== sel).concat([sel]);
-    svg.append('g').selectAll('path').data(ordered).join('path').style('fill', 'none').style('stroke', (d) => SER(d.i)).attr('stroke-opacity', (d) => (d === sel ? 1 : 0.5))
-      .attr('stroke-width', (d) => (d === sel ? 3.25 : 1.5)).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round').attr('d', (d) => line(d.pts));
-    svg.append('circle').attr('cx', x(N)).attr('cy', y(lastV)).attr('r', 5).style('fill', SER(sel.i)).style('stroke', 'var(--mk-card)').style('stroke-width', 2);
-    svg.append('text').attr('class', 'ex-tick').attr('x', x(N) + 8).attr('y', y(lastV)).attr('dy', '0.32em').style('fill', SER(sel.i)).style('font-weight', 600).text(endLabel);
+    const COL = (x) => `var(--mk-s${(x.i % 13) + 1})`;
+    svg.append('g').selectAll('path').data(ordered).join('path').style('fill', 'none').style('stroke', (d) => COL(d)).attr('stroke-opacity', (d) => (d === sel ? 1 : 0.55))
+      .attr('stroke-width', (d) => (d === sel ? 3.25 : 1.6)).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round').attr('d', (d) => line(d.pts));
+    svg.append('circle').attr('cx', x(N)).attr('cy', y(lastV)).attr('r', 5).style('fill', COL(sel)).style('stroke', 'var(--mk-card)').style('stroke-width', 2);
+    svg.append('text').attr('class', 'ex-tick').attr('x', x(N) + 8).attr('y', y(lastV)).attr('dy', '0.32em').style('fill', COL(sel)).style('font-weight', 600).text(endLabel);
     const rule = svg.append('line').attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--cds-chart-reference)').style('display', 'none');
     const dots = svg.append('g').style('display', 'none');
     const tip = document.createElement('div'); tip.className = 'ex-tip'; tip.hidden = true; el.appendChild(tip);
@@ -619,12 +732,12 @@ window.dash = (() => {
         const [mx] = d3.pointer(event); const t = Math.max(0, Math.min(N, Math.round(x.invert(mx))));
         rule.attr('x1', x(t)).attr('x2', x(t)).style('display', null);
         const rows = series.map((sr) => ({sr, v: sr.pts[t].v})).sort((a, b) => b.v - a.v);
-        dots.style('display', null).selectAll('circle').data(rows).join('circle').attr('r', (d) => (d.sr === sel ? 4.5 : 3)).attr('cx', x(t)).attr('cy', (d) => y(d.v)).style('fill', (d) => SER(d.sr.i));
+        dots.style('display', null).selectAll('circle').data(rows).join('circle').attr('r', (d) => (d.sr === sel ? 4.5 : 3)).attr('cx', x(t)).attr('cy', (d) => y(d.v)).style('fill', (d) => COL(d.sr));
         tip.replaceChildren();
         const h = document.createElement('div'); h.className = 'h'; h.textContent = t === 0 ? 'Start' : 'Year ' + t; tip.appendChild(h);
         rows.forEach((d) => {
           const r = document.createElement('div'); r.className = 'r';
-          const sw = document.createElement('span'); sw.className = 'ex-sw'; sw.style.background = SER(d.sr.i);
+          const sw = document.createElement('span'); sw.className = 'ex-sw'; sw.style.background = COL(d.sr);
           const n = document.createElement('span'); n.textContent = d.sr.s.name; if (d.sr === sel) n.style.fontWeight = '600';
           const b = document.createElement('b'); b.textContent = money(d.v);
           r.append(sw, n, b); tip.appendChild(r);
@@ -640,7 +753,7 @@ window.dash = (() => {
     const c = ctx(); el.replaceChildren(); if (!c.ok) return;
     c.strategies.forEach((s, i) => {
       const b = document.createElement('button'); b.type = 'button'; if (s.id === c.sel.id) b.className = 'on';
-      const sw = document.createElement('span'); sw.className = 'ex-sw'; sw.style.background = SER(i);
+      const sw = document.createElement('span'); sw.className = 'ex-sw'; sw.style.background = `var(--mk-s${(i % 13) + 1})`;
       const t = document.createElement('span'); t.textContent = s.name;
       b.append(sw, t); b.addEventListener('click', () => pick(s.id)); el.appendChild(b);
     });
@@ -651,7 +764,7 @@ window.dash = (() => {
     const c = ctx(); el.replaceChildren(); el.classList.toggle('dash-skeleton', !c.ok && c.loading);
     if (!c.ok) return;
     const rows = c.strategies.map((s) => ({s, v: run(s, c).afterTax}));
-    const W = Math.max(260, el.clientWidth), bh = 22, gap = 10, mt = 24, mb = 6;
+    const W = Math.max(260, el.clientWidth), bh = 24, gap = 13, mt = 24, mb = 6;
     const H = mt + rows.length * (bh + gap) + mb;
     const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'After-tax monthly income by strategy');
     const measure = (s, bold) => { const n = svg.append('text').attr('class', 'ex-tick').style('font-weight', bold ? 600 : null).text(s); const w = n.node().getComputedTextLength(); n.remove(); return w; };
@@ -678,19 +791,34 @@ window.dash = (() => {
   });
 
   /* Exhibit 3: allocation */
-  dash.draw('hold', (el) => {
-    const c = ctx(); el.replaceChildren(); el.classList.toggle('dash-skeleton', !c.ok && c.loading);
-    if (!c.ok) return;
+  dash.draw('hold', (tb) => {
+    const c = ctx(); tb.replaceChildren(); if (!c.ok) return;
+    let totW = 0, totCost = 0;
     c.holdings.filter((h) => h.strategy_id === c.sel.id).forEach((h, i) => {
-      const w = Number(h.weight);
-      const row = document.createElement('div'); row.className = 'ex-hrow';
-      const t = document.createElement('span'); t.className = 't'; t.textContent = h.ticker;
-      const track = document.createElement('div'); track.className = 'ex-htrack';
-      const bar = document.createElement('div'); bar.className = 'ex-hbar'; bar.style.width = w + '%'; bar.style.background = PAL[i % PAL.length];
-      track.appendChild(bar);
-      const v = document.createElement('span'); v.textContent = money(c.p.amount * w / 100) + ' · ' + w + '%';
-      row.append(t, track, v); el.appendChild(row);
+      const w = Number(h.weight), e = c.etfs.find((x) => x.ticker === h.ticker) || {};
+      const er = e.expense_ratio === null || e.expense_ratio === undefined ? null : Number(e.expense_ratio);
+      const amt = c.p.amount * w / 100, cost = er === null ? 0 : amt * er / 100;
+      totW += w; totCost += cost;
+      const tr = document.createElement('tr');
+      const a = document.createElement('td'); a.className = 'l';
+      const t = document.createElement('div'); t.className = 'nm'; t.textContent = h.ticker;
+      const fn = document.createElement('div'); fn.className = 'fn'; fn.textContent = e.name || '';
+      a.append(t, fn);
+      const b = document.createElement('td'); b.className = 'l';
+      const wb = document.createElement('div'); wb.className = 'wb';
+      const bar = document.createElement('i'); bar.style.width = Math.max(2, w * 0.7) + 'px'; bar.style.background = PAL[i % PAL.length];
+      const wl = document.createElement('span'); wl.textContent = w + '%';
+      wb.append(bar, wl); b.appendChild(wb);
+      const td = (v) => { const x = document.createElement('td'); x.textContent = v; return x; };
+      tr.append(a, b, td(money(amt)), td(er === null ? '—' : pct(er)), td(money(cost)));
+      tb.appendChild(tr);
     });
+    const tr = document.createElement('tr'); tr.className = 'tot';
+    const a = document.createElement('td'); a.className = 'l nm'; a.textContent = 'Total';
+    const b = document.createElement('td'); b.className = 'l'; b.textContent = totW + '%';
+    const td = (v) => { const x = document.createElement('td'); x.textContent = v; x.style.fontWeight = '700'; return x; };
+    tr.append(a, b, td(money(c.p.amount)), td(pct(c.p.amount ? totCost / c.p.amount * 100 : 0)), td(money(totCost)));
+    tb.appendChild(tr);
   });
 
   dash.draw('mix', (el) => {
@@ -716,24 +844,141 @@ window.dash = (() => {
   /* Exhibit 4: comparison */
   dash.draw('cmp-body', (tb) => {
     const c = ctx(); tb.replaceChildren(); if (!c.ok) return;
-    c.strategies.forEach((s) => {
-      const m = run(s, c);
-      const tr = document.createElement('tr'); tr.className = 'pick' + (s.id === c.sel.id ? ' is-sel' : '');
-      const td0 = document.createElement('td'); td0.className = 'l';
-      const nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = s.name;
-      const al = document.createElement('div'); al.className = 'al'; al.textContent = s.allocation;
-      td0.append(nm, al); tr.appendChild(td0);
-      const gap = m.afterTax - c.p.need;
-      [[pct(m.retPct)], [pct(m.wdPct)], [(m.netPct >= 0 ? '+' : '−') + pct(Math.abs(m.netPct))], [money(m.monthly)], [money(m.afterTax)],
-       [gap >= 0 ? 'Meets' : '−' + money(Math.abs(gap)), gap >= 0 ? 'ex-good' : 'ex-bad'], [money(m.endW)], [money(m.endR)]].forEach(([v, cls]) => {
+    {
+      c.strategies.forEach((s) => {
+        const m = run(s, c);
+        const tr = document.createElement('tr'); tr.className = 'pick' + (s.id === c.sel.id ? ' is-sel' : '');
+        const td0 = document.createElement('td'); td0.className = 'l';
+        const nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = s.name;
+        const al = document.createElement('div'); al.className = 'al'; al.textContent = s.allocation;
+        td0.append(nm, al); tr.appendChild(td0);
+        const gap = m.afterTax - c.p.need;
+        [[(s.equity_pct + s.option_pct) + '%'], [d3.format('.2f')(fundCost(c, s)) + '%'], [pct(m.retPct)], [pct(m.wdPct)], [(m.netPct >= 0 ? '+' : '−') + pct(Math.abs(m.netPct))], [money(m.monthly)], [money(m.afterTax)],
+         [gap >= 0 ? 'Meets' : '−' + money(Math.abs(gap)), gap >= 0 ? 'ex-good' : 'ex-bad'], [money(m.endW)], [money(m.endR)]].forEach(([v, cls]) => {
+          const td = document.createElement('td'); td.textContent = v; if (cls) td.className = cls; tr.appendChild(td);
+        });
+        tr.addEventListener('click', () => pick(s.id));
+        tb.appendChild(tr);
+      });
+    }
+  });
+
+
+  /* Exhibit 5: risk vs return */
+  const corrOf = (c, a, b) => { const r = c.corr.find((x) => (x.class_a === a && x.class_b === b) || (x.class_a === b && x.class_b === a)); return r ? Number(r.correlation) : 0; };
+  const volOf = (c, s) => {
+    const hs = c.holdings.filter((h) => h.strategy_id === s.id).map((h) => {
+      const e = c.etfs.find((x) => x.ticker === h.ticker) || {};
+      return {t: h.ticker, w: Number(h.weight) / 100, v: Number(e.est_volatility || 0) / 100, k: e.risk_class || 'equity'};
+    });
+    let v = 0; hs.forEach((a) => hs.forEach((b) => { v += a.w * b.w * a.v * b.v * (a.t === b.t ? 1 : corrOf(c, a.k, b.k)); }));
+    return Math.sqrt(v) * 100;
+  };
+  const cashRate = (c) => { const e = c.etfs.find((x) => x.ticker === 'SGOV'); return e ? Number(e.model_rate) : 0; };
+  const rrRows = (c) => {
+    const cr = cashRate(c);
+    const rows = c.strategies.map((s, i) => { const m = run(s, c); const ret = m.retPct - c.p.fee; const vol = volOf(c, s);
+      return {s, i, name: s.name, ret, vol, bad: ret - 1.645 * vol, ratio: vol > 0 ? (ret - cr) / vol : 0}; });
+    rows.forEach((r) => {
+      r.r_ret = 1 + rows.filter((x) => x.ret > r.ret + 1e-9).length;
+      r.r_vol = 1 + rows.filter((x) => x.vol < r.vol - 1e-9).length;
+      r.r_ratio = 1 + rows.filter((x) => x.ratio > r.ratio + 1e-9).length;
+    });
+    return rows;
+  };
+  const rrBy = (c, key) => rrRows(c).sort((a, b) => a[key] - b[key])[0];
+  text('rr-best', (c) => rrBy(c, 'r_ratio').s.name);
+  text('rr-top', (c) => rrBy(c, 'r_ret').s.name);
+  text('rr-toprisk', (c) => ord(rrBy(c, 'r_ret').r_vol));
+  text('rr-n', (c) => String(c.strategies.length));
+
+  window.exRRSort = window.exRRSort || {key: 'r_ratio', dir: 1};
+  document.querySelectorAll('.ex-rr th[data-sort]').forEach((th) => th.addEventListener('click', () => {
+    const k = th.dataset.sort, cur = window.exRRSort;
+    const natural = ['ret', 'bad', 'ratio'].includes(k) ? -1 : 1;
+    window.exRRSort = {key: k, dir: cur.key === k ? -cur.dir : natural};
+    document.querySelectorAll('.ex-rr th[data-sort]').forEach((h) => {
+      if (h.dataset.sort === k) h.setAttribute('aria-sort', window.exRRSort.dir === 1 ? 'ascending' : 'descending'); else h.removeAttribute('aria-sort');
+    });
+    dash.draw('rr-body');
+  }));
+
+  dash.draw('rr-body', (tb) => {
+    const c = ctx(); tb.replaceChildren(); if (!c.ok) return;
+    const {key, dir} = window.exRRSort;
+    const rows = rrRows(c).sort((a, b) => (key === 'name' ? a.name.localeCompare(b.name) : a[key] - b[key]) * dir);
+    rows.forEach((r) => {
+      const tr = document.createElement('tr'); tr.className = 'pick' + (r.s.id === c.sel.id ? ' is-sel' : '');
+      const a = document.createElement('td'); a.className = 'l nm';
+      const sw = document.createElement('i'); sw.className = 'rsw'; sw.style.background = `var(--mk-s${(r.i % 13) + 1})`;
+      a.append(sw, document.createTextNode(r.name)); tr.appendChild(a);
+      [[pct(r.ret)], [pct(r.vol)], [(r.bad < 0 ? '−' : '') + pct(Math.abs(r.bad)), r.bad < 0 ? 'ex-bad' : null], [d3.format('.2f')(r.ratio)],
+       [String(r.r_ret), r.r_ret <= 3 ? 'ex-top' : null], [String(r.r_vol), r.r_vol <= 3 ? 'ex-top' : null], [String(r.r_ratio), r.r_ratio <= 3 ? 'ex-top' : null]].forEach(([v, cls]) => {
         const td = document.createElement('td'); td.textContent = v; if (cls) td.className = cls; tr.appendChild(td);
       });
-      tr.addEventListener('click', () => pick(s.id));
+      tr.addEventListener('click', () => pick(r.s.id));
       tb.appendChild(tr);
     });
   });
 
-  /* Exhibit 5: yearly */
+  dash.draw('rr-chart', (el) => {
+    const c = ctx(); el.replaceChildren(); el.classList.toggle('dash-skeleton', !c.ok && c.loading);
+    if (!c.ok) return;
+    const rows = rrRows(c);
+    const COL = (r) => `var(--mk-s${(r.i % 13) + 1})`;
+    const W = Math.max(280, el.clientWidth), H = 360, mt = 16, mb = 44;
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Expected return against volatility by strategy');
+    const measure = (t, bold) => { const n = svg.append('text').attr('class', 'ex-tick').style('font-weight', bold ? 600 : null).text(t); const w = n.node().getComputedTextLength(); n.remove(); return w; };
+    const [rlo, rhi] = d3.extent(rows, (r) => r.ret);
+    const y = d3.scaleLinear([Math.min(0, Math.floor(rlo - 1)), Math.ceil(rhi + 1)], [H - mb, mt]).nice();
+    const yt = y.ticks(6);
+    const ml = d3.max(yt, (t) => measure(d3.format('.0f')(t) + '%')) + 30;
+    const mr = 16;
+    const x = d3.scaleLinear([0, Math.ceil(d3.max(rows, (r) => r.vol) * 1.1)], [ml, W - mr]).nice();
+    const xt = x.ticks(Math.max(3, Math.floor((W - ml - mr) / 70)));
+    svg.append('g').selectAll('line').data(yt).join('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+    svg.append('g').selectAll('text').data(yt).join('text').attr('class', 'ex-tick').attr('x', ml - 8).attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').text((t) => d3.format('.0f')(t) + '%');
+    svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', H - mb).attr('y2', H - mb).style('stroke', 'var(--mk-navy)').style('stroke-width', 1.5);
+    svg.append('g').selectAll('text').data(xt).join('text').attr('class', 'ex-tick').attr('x', x).attr('y', H - mb + 18).attr('text-anchor', 'middle').text((t) => d3.format('.0f')(t) + '%');
+    svg.append('text').attr('class', 'ex-tick').attr('x', (ml + W - mr) / 2).attr('y', H - 6).attr('text-anchor', 'middle').text('Volatility (risk), annual %');
+    svg.append('text').attr('class', 'ex-tick').attr('transform', `translate(12,${(mt + H - mb) / 2}) rotate(-90)`).attr('text-anchor', 'middle').text('Expected return, annual %');
+    const mx = d3.median(rows, (r) => r.vol), my = d3.median(rows, (r) => r.ret);
+    svg.append('line').attr('x1', x(mx)).attr('x2', x(mx)).attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--mk-gold)').attr('stroke-dasharray', '4 3');
+    svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y(my)).attr('y2', y(my)).style('stroke', 'var(--mk-gold)').attr('stroke-dasharray', '4 3');
+    const q = [['Higher return, lower risk', ml + 8, mt + 12, 'start'], ['Higher return, higher risk', W - mr - 8, mt + 12, 'end'],
+      ['Lower return, lower risk', ml + 8, H - mb - 8, 'start'], ['Lower return, higher risk', W - mr - 8, H - mb - 8, 'end']];
+    if (W > 520) svg.append('g').selectAll('text').data(q).join('text').attr('class', 'ex-tick').attr('x', (d) => d[1]).attr('y', (d) => d[2]).attr('text-anchor', (d) => d[3])
+      .style('fill', 'var(--mk-gold)').style('font-weight', 600).style('letter-spacing', '.04em').text((d) => d[0]);
+    const sel = rows.find((r) => r.s.id === c.sel.id);
+    const others = rows.filter((r) => r !== sel);
+    const tip = document.createElement('div'); tip.className = 'ex-tip'; tip.hidden = true; el.appendChild(tip);
+    const show = (event, r) => {
+      tip.replaceChildren();
+      const h = document.createElement('div'); h.className = 'h'; h.textContent = r.name; tip.appendChild(h);
+      [['Expected return', pct(r.ret)], ['Volatility', pct(r.vol)], ['Bad-year return', (r.bad < 0 ? '−' : '') + pct(Math.abs(r.bad))], ['Return per unit of risk', d3.format('.2f')(r.ratio)],
+       ['Ranks (return · risk · risk-adj.)', r.r_ret + ' · ' + r.r_vol + ' · ' + r.r_ratio]].forEach(([k, v]) => {
+        const row = document.createElement('div'); row.className = 'r'; const a = document.createElement('span'); a.textContent = k; const b = document.createElement('b'); b.textContent = v; row.append(a, b); tip.appendChild(row);
+      });
+      tip.hidden = false;
+      const px = x(r.vol) * el.clientWidth / W, py = y(r.ret) * el.clientWidth / W, tw = tip.offsetWidth, th = tip.offsetHeight;
+      let left = px + 14; if (left + tw > el.clientWidth) left = px - tw - 14; if (left < 0) left = 0;
+      let top = py - th / 2; top = Math.max(0, Math.min(el.clientHeight - th, top));
+      tip.style.left = left + 'px'; tip.style.top = top + 'px';
+    };
+    const dots = svg.append('g').selectAll('circle').data(others.concat(sel ? [sel] : [])).join('circle')
+      .attr('cx', (r) => x(r.vol)).attr('cy', (r) => y(r.ret)).attr('r', (r) => (r === sel ? 9 : 6.5))
+      .style('fill', COL).style('fill-opacity', (r) => (r === sel ? 1 : 0.85)).style('stroke', (r) => (r === sel ? 'var(--mk-ink)' : 'var(--mk-card)')).style('stroke-width', (r) => (r === sel ? 2.5 : 1.5))
+      .style('cursor', 'pointer')
+      .on('pointerenter pointermove', (e, r) => show(e, r)).on('pointerleave', () => { tip.hidden = true; }).on('click', (e, r) => pick(r.s.id));
+    if (sel) {
+      const lbl = sel.name, lw = measure(lbl, true);
+      const right = x(sel.vol) + 14 + lw < W - mr;
+      svg.append('text').attr('class', 'ex-tick').attr('x', right ? x(sel.vol) + 14 : x(sel.vol) - 14).attr('y', y(sel.ret)).attr('dy', '0.32em')
+        .attr('text-anchor', right ? 'start' : 'end').style('fill', 'var(--mk-ink)').style('font-weight', 700).style('paint-order', 'stroke').style('stroke', 'var(--mk-card)').style('stroke-width', 4).text(lbl);
+    }
+  });
+
+  /* Exhibit 6: yearly */
   dash.draw('yr-body', (tb) => {
     const c = ctx(); tb.replaceChildren(); if (!c.ok) return;
     run(c.sel, c).path.slice(1).forEach((d) => {
@@ -767,13 +1012,14 @@ window.dash = (() => {
   text('basis4', (c) => basisWord(c));
   dash.draw('ms-body', (tb) => {
     const c = ctx(); tb.replaceChildren(); if (!c.ok) return;
-    milestones(c).forEach((r) => {
+    const ms = milestones(c);
+    { ms.forEach((r) => {
       const tr = document.createElement('tr'); tr.className = 'pick' + (r.s.id === c.sel.id ? ' is-sel' : '');
       const a = document.createElement('td'); a.className = 'l nm'; a.textContent = r.s.name; tr.appendChild(a);
       [r.annual, r.w5, r.w10, r.r5, r.r10].forEach((v) => { const td = document.createElement('td'); td.textContent = money(v); tr.appendChild(td); });
       tr.addEventListener('click', () => pick(r.s.id));
       tb.appendChild(tr);
-    });
+    }); }
   });
 
   dash.draw('etf-body', (tb) => {
@@ -781,10 +1027,33 @@ window.dash = (() => {
     g.data.forEach((e) => {
       const tr = document.createElement('tr'); tr.dataset.key = e.ticker;
       const cells = [[e.ticker, 'l nm'], [e.name, 'l'], [e.type, 'l'], [e.maturity, 'l'],
-        [e.model_rate === null || e.model_rate === undefined ? '' : pct(Number(e.model_rate))],
+        [e.expense_ratio === null || e.expense_ratio === undefined ? '' : d3.format('.2f')(Number(e.expense_ratio)) + '%'],
+        [e.model_rate === null || e.model_rate === undefined ? '' : pct(Number(e.model_rate))], [e.rate_source || '', 'l'],
         [e.sec_yield === null || e.sec_yield === undefined ? '' : pct(Number(e.sec_yield))], [e.note, 'wrap']];
       cells.forEach(([v, cls]) => { const td = document.createElement('td'); td.textContent = v; if (cls) td.className = cls; tr.appendChild(td); });
       tb.appendChild(tr);
+    });
+  });
+  dash.draw('alloc-profile', (el) => {
+    const c = ctx(); el.replaceChildren(); el.classList.toggle('dash-skeleton', !c.ok && c.loading);
+    if (!c.ok) return;
+    const r = rrRows(c).find((x) => x.s.id === c.sel.id), m = run(c.sel, c), n = c.strategies.length;
+    let er = 0; c.holdings.filter((h) => h.strategy_id === c.sel.id).forEach((h) => { const e = c.etfs.find((x) => x.ticker === h.ticker) || {}; er += Number(h.weight) / 100 * (Number(e.expense_ratio) || 0); });
+    const src = c.p.wr !== null ? (c.p.wr === 4 ? 'The 4% Rule' : 'Custom rate') : (c.sel.withdrawal_yield === null ? 'The 4% Rule' : 'Strategy payout yield');
+    const tiles = [
+      ['Expected return', pct(r.ret), 'Per year, after fees', null],
+      ['Withdrawal rate', pct(m.wdPct), src, null],
+      ['Volatility (risk)', pct(r.vol), 'Risk rank ' + r.r_vol + ' of ' + n, null],
+      ['Bad-year return', (r.bad < 0 ? '−' : '') + pct(Math.abs(r.bad)), 'About 1 year in 20', r.bad < 0 ? 'ex-bad' : null],
+      ['Blended fund cost', pct(er), money(c.p.amount * er / 100) + ' a year', null],
+      ['Risk-adjusted rank', ord(r.r_ratio), 'Of ' + n + ' strategies', r.r_ratio <= 3 ? 'ex-top' : null],
+    ];
+    tiles.forEach(([k, v, sub, cls]) => {
+      const d = document.createElement('div');
+      const a = document.createElement('div'); a.className = 'pk'; a.textContent = k;
+      const b = document.createElement('div'); b.className = 'pv' + (cls ? ' ' + cls : ''); b.textContent = v;
+      const s2 = document.createElement('div'); s2.className = 'ps'; s2.textContent = sub;
+      d.append(a, b, s2); el.appendChild(d);
     });
   });
 })();
